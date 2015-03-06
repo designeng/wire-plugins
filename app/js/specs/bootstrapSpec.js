@@ -1,0 +1,3 @@
+define({
+  $plugins: ["wire/debug"]
+});
