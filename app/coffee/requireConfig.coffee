@@ -52,7 +52,7 @@ require.config
         {
             name: "underscore"
             main: "lodash"
-            location: "../../bower_components/lodash"
+            location: "../../bower_components/dist/lodash"
         },     
         {
             name: "jquery"
@@ -68,12 +68,6 @@ require.config
             name: "i18n"
             main: "i18n"
             location: "../../bower_components/requirejs-i18n"
-        },
-        # requirejs plugins, analog curl plugins
-        {
-            name: "css"
-            main: "css"
-            location: "../../bower_components/require-css"
         },
         {
             name: "domReady"

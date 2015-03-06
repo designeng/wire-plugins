@@ -40,7 +40,7 @@ require.config({
     }, {
       name: "underscore",
       main: "lodash",
-      location: "../../bower_components/lodash"
+      location: "../../bower_components/dist/lodash"
     }, {
       name: "jquery",
       main: "jquery",
@@ -53,10 +53,6 @@ require.config({
       name: "i18n",
       main: "i18n",
       location: "../../bower_components/requirejs-i18n"
-    }, {
-      name: "css",
-      main: "css",
-      location: "../../bower_components/require-css"
     }, {
       name: "domReady",
       main: "domReady",
