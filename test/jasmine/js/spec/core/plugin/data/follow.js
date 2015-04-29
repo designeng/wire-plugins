@@ -29,7 +29,7 @@ define(["wire"], function(wire) {
     })();
   });
   integrationSpec = {
-    $plugins: ['wire/debug', 'core/plugin/data/follow'],
+    $plugins: ['wire/debug', 'plugins/data/follow'],
     firstController: {
       create: "firstController"
     },

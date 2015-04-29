@@ -1,13 +1,16 @@
-define(["underscore", "underscore.string", "jquery", "when", "meld", "wire/lib/object", "kefir", "kefirJquery", "eventEmitter"], function(_, _Str, $, When, meld, object, Kefir, KefirJquery, EventEmitter) {
+define(["underscore", "jquery", "when", "meld", "wire/lib/object", "kefir", "kefirJquery", "eventEmitter"], function(_, $, When, meld, object, Kefir, KefirJquery, EventEmitter) {
   KefirJquery.init(Kefir, $);
   return function(options) {
-    var getByInputStreams, getByPropertyStreams, getClassAndMethod, getEventName, getbyInvocationStreams, isRef, mergeWithCombinedStreams, pluginInstance, removers, valuesBunchFacetReady, valuesSeparatelyFacetReady;
+    var capitalize, getByInputStreams, getByPropertyStreams, getClassAndMethod, getEventName, getbyInvocationStreams, isRef, mergeWithCombinedStreams, pluginInstance, removers, valuesBunchFacetReady, valuesSeparatelyFacetReady;
     removers = [];
     isRef = function(it) {
       return it && object.hasOwn(it, '$ref');
     };
+    capitalize = function(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    };
     getEventName = function(providerName, propertyName) {
-      return propertyName + _Str.capitalize(providerName) + "PropertyEvent";
+      return propertyName + capitalize(providerName) + "PropertyEvent";
     };
     getClassAndMethod = function(str) {
       return str.split(".").slice(0, 2);

@@ -68,7 +68,7 @@ define [
             'wire/dom'
             'wire/dom/render'
             'wire/connect'
-            'core/plugin/data/structure/collection'
+            'plugins/data/structure/collection'
         ]
 
         form: {$ref: 'dom.first!.searchForm'}

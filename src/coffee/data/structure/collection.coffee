@@ -5,7 +5,7 @@ define [
     "when"
     "meld"
     "wire/lib/object"
-    "core/util/surrogate/ClonedCollection"
+    "core/entity/ClonedCollection"
     "kefir"
     "kefirJquery"
 ], (_, $, When, meld, object, ClonedCollection, Kefir, KefirJquery) ->
@@ -115,8 +115,6 @@ define [
                         .asKefirStream(event, getFieldData)
                         .onValue (value) ->
                             console.debug "ON VALUE:::", value
-
-                console.debug "streams", streams
 
                 resolver.resolve()
 

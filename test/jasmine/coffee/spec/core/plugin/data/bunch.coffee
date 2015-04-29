@@ -24,7 +24,7 @@ define [
     integrationSpec = 
         $plugins: [
             'wire/debug'
-            'core/plugin/data/bunch'
+            'plugins/data/bunch'
         ]
 
         model:

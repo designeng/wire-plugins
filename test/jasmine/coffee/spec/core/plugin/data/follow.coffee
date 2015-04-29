@@ -21,7 +21,7 @@ define [
     integrationSpec = 
         $plugins: [
             'wire/debug'
-            'core/plugin/data/follow'
+            'plugins/data/follow'
         ]
 
         firstController:

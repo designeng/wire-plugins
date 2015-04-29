@@ -1,9 +1,12 @@
-define(["underscore", "underscore.string", "meld", "wire/lib/object"], function(_, _Str, meld, object) {
+define(["underscore", "meld", "wire/lib/object"], function(_, meld, object) {
   return function(options) {
-    var followFacetDestroy, followFacetReady, isRef, removers;
+    var capitalize, followFacetDestroy, followFacetReady, isRef, removers;
     removers = [];
     isRef = function(it) {
       return it && object.hasOwn(it, '$ref');
+    };
+    capitalize = function(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
     };
     followFacetReady = function(resolver, facet, wire) {
       _.each(facet.options, function(providerFieldValue, consumerFieldName) {
@@ -18,7 +21,7 @@ define(["underscore", "underscore.string", "meld", "wire/lib/object"], function(
             $ref: provider["class"]
           }).then(function(providerClass) {
             var providerFieldSetterName;
-            providerFieldSetterName = "set" + _Str.capitalize(provider["method"]);
+            providerFieldSetterName = "set" + capitalize(provider["method"]);
             if (!_.isFunction(providerClass[providerFieldSetterName])) {
               throw new Error("Method " + providerFieldSetterName + " should be defined in object " + provider["class"] + " !");
             } else {

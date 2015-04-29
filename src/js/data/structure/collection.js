@@ -1,6 +1,6 @@
 var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-define(["underscore", "jquery", "when", "meld", "wire/lib/object", "core/util/surrogate/ClonedCollection", "kefir", "kefirJquery"], function(_, $, When, meld, object, ClonedCollection, Kefir, KefirJquery) {
+define(["underscore", "jquery", "when", "meld", "wire/lib/object", "core/entity/ClonedCollection", "kefir", "kefirJquery"], function(_, $, When, meld, object, ClonedCollection, Kefir, KefirJquery) {
   KefirJquery.init(Kefir, $);
   return function(options) {
     var addAspect, addFilterFacetReady, bindFiltersToFieldsFacetReady, checkMethod, cleanRemovers, cloneStructureFactory, getClassAndMethod, isRef, normalizeFilters, onFilteredFacetReady, pluginInstance, removers, targetCollection;
@@ -108,7 +108,6 @@ define(["underscore", "jquery", "when", "meld", "wire/lib/object", "core/util/su
             return console.debug("ON VALUE:::", value);
           });
         });
-        console.debug("streams", streams);
         return resolver.resolve();
       });
     };

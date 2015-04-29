@@ -40,7 +40,7 @@ define(["wire"], function(wire) {
     })();
   });
   integrationSpec = {
-    $plugins: ['wire/debug', 'core/plugin/data/bunch'],
+    $plugins: ['wire/debug', 'plugins/data/bunch'],
     model: {
       create: "core/entity/Model",
       init: {

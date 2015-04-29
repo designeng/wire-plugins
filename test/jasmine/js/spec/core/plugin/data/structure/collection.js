@@ -82,7 +82,7 @@ define(["underscore", "jquery", "wire", "text!/test/jasmine/fixtures/formFixture
     })();
   });
   integrationSpec = {
-    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'wire/connect', 'core/plugin/data/structure/collection'],
+    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'wire/connect', 'plugins/data/structure/collection'],
     form: {
       $ref: 'dom.first!.searchForm'
     },
