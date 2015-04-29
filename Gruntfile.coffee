@@ -45,16 +45,6 @@ module.exports = (grunt) ->
                     ext: '.js'
                 ]
 
-        copy:
-            app:
-                files: [
-                    expand: true
-                    cwd: "app/"
-                    src: ["**"]
-                    dest: "prebuild/"
-                    filter: "isFile"
-                ]
-
         connect:
             server:
                 options:
@@ -76,7 +66,6 @@ module.exports = (grunt) ->
 
     grunt.loadNpmTasks "grunt-contrib-watch"
     grunt.loadNpmTasks "grunt-contrib-coffee"
-    grunt.loadNpmTasks "grunt-contrib-copy"
     grunt.loadNpmTasks "grunt-contrib-connect"
     grunt.loadNpmTasks "grunt-contrib-concat"
     grunt.loadNpmTasks "grunt-newer"
