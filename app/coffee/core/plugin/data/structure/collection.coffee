@@ -5,7 +5,7 @@ define [
     "when"
     "meld"
     "wire/lib/object"
-    "core/util/surrogate/ClonedCollection"
+    "core/entity/ClonedCollection"
     "kefir"
     "kefirJquery"
 ], (_, $, When, meld, object, ClonedCollection, Kefir, KefirJquery) ->

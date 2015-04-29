@@ -1,17 +1,6 @@
 define [
     "wire"
-    "core/util/array/objectInArray"
-], (wire, objectInArray) ->
-
-    describe "objectInArray", ->
-        beforeEach (done) ->
-            @hash = [{a: "1"}]
-            done()
-
-        it "objectInArray should detect object in array", (done) ->
-            expect(objectInArray @hash, {a: "1"}).toBeTruthy()
-            expect(objectInArray @hash, {a: "2"}).not.toBeTruthy()
-            done()
+], (wire) ->
 
     onDataDeliveredSpy = jasmine.createSpy('onDataDeliveredSpy')
 
@@ -39,7 +28,7 @@ define [
         ]
 
         model:
-            create: "core/util/surrogate/Model"
+            create: "core/entity/Model"
             init:
                 setProperty: [
                     "one"
@@ -47,7 +36,7 @@ define [
                 ]
 
         anotherModel:
-            create: "core/util/surrogate/Model"
+            create: "core/entity/Model"
 
         firstController:
             create: "bunch/firstController"

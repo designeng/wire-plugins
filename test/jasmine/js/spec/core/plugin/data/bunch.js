@@ -1,24 +1,5 @@
-define(["wire", "core/util/array/objectInArray"], function(wire, objectInArray) {
+define(["wire"], function(wire) {
   var integrationSpec, onDataDeliveredSpy;
-  describe("objectInArray", function() {
-    beforeEach(function(done) {
-      this.hash = [
-        {
-          a: "1"
-        }
-      ];
-      return done();
-    });
-    return it("objectInArray should detect object in array", function(done) {
-      expect(objectInArray(this.hash, {
-        a: "1"
-      })).toBeTruthy();
-      expect(objectInArray(this.hash, {
-        a: "2"
-      })).not.toBeTruthy();
-      return done();
-    });
-  });
   onDataDeliveredSpy = jasmine.createSpy('onDataDeliveredSpy');
   define('bunch/firstController', function() {
     var FirstController;
@@ -61,13 +42,13 @@ define(["wire", "core/util/array/objectInArray"], function(wire, objectInArray) 
   integrationSpec = {
     $plugins: ['wire/debug', 'core/plugin/data/bunch'],
     model: {
-      create: "core/util/surrogate/Model",
+      create: "core/entity/Model",
       init: {
         setProperty: ["one", "1"]
       }
     },
     anotherModel: {
-      create: "core/util/surrogate/Model"
+      create: "core/entity/Model"
     },
     firstController: {
       create: "bunch/firstController"

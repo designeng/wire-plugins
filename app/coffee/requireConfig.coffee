@@ -52,7 +52,7 @@ require.config
         {
             name: "underscore"
             main: "lodash"
-            location: "../../bower_components/dist/lodash"
+            location: "../../bower_components/lodash/dist"
         },     
         {
             name: "jquery"
@@ -82,8 +82,13 @@ require.config
         {
             name: "kefirJquery"
             main: "kefir-jquery"
-            location: "../../bower_components/kefir/dist/addons"
-        }     
+            location: "../../bower_components/kefir-jquery"
+        },
+        {
+            name: "eventEmitter"
+            main: "eventEmitter"
+            location: "../../bower_components/eventEmitter"
+        }
     ]
 
     shim: {

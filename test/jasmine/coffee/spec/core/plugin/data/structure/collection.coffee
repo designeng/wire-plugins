@@ -69,7 +69,6 @@ define [
             'wire/dom/render'
             'wire/connect'
             'core/plugin/data/structure/collection'
-            'core/plugin/form/validate'
         ]
 
         form: {$ref: 'dom.first!.searchForm'}
@@ -85,13 +84,6 @@ define [
             create: "controller"
             ready:
                 onReady: {$ref: "firstCollection"}
-            # validate:
-            #     form: {$ref: 'form'}
-            #     fieldNames: ['lastName']
-            #     strategy: {$ref: 'strategy'}
-            #     successHandler: {$ref: 'controller.successHandler'}
-            #     displaySlot: {$ref: 'dom.first!.displaySlot', at: 'form'}
-            #     displaySlotClass: "displaySlotClass"
 
         transformer:
             module: 'transformer'
@@ -100,7 +92,7 @@ define [
             module: 'filters'
 
         firstCollection:
-            create: "core/util/surrogate/Collection"
+            create: "core/entity/Collection"
 
         secondCollection:
             cloneStructure: {$ref: "firstCollection"}

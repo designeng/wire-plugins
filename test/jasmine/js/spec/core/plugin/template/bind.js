@@ -19,7 +19,7 @@ define(["wire", "when", "eventEmitter", "text!/test/jasmine/fixtures/formFixture
       }
     },
     model: {
-      create: "core/util/surrogate/Model",
+      create: "core/entity/Model",
       init: {
         'setProperties': [
           {

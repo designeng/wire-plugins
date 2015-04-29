@@ -27,7 +27,7 @@ define [
                 by: "id"
 
         model:
-            create: "core/util/surrogate/Model"
+            create: "core/entity/Model"
             init: 
                 'setProperties': [{firstName: "one", lastName: "two"}]
 

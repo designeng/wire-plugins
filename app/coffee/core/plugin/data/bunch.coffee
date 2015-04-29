@@ -1,7 +1,6 @@
 # valuesBunch plugin
 define [
     "underscore"
-    "underscore.string"
     "jquery"
     "when"
     "meld"
@@ -9,7 +8,7 @@ define [
     "kefir"
     "kefirJquery"
     "eventEmitter"
-], (_, _Str, $, When, meld, object, Kefir, KefirJquery, EventEmitter) ->
+], (_, $, When, meld, object, Kefir, KefirJquery, EventEmitter) ->
 
     KefirJquery.init Kefir, $
 
@@ -20,8 +19,11 @@ define [
         isRef = (it) ->
             return it and object.hasOwn(it, '$ref')
 
+        capitalize = (str) ->
+            return str.charAt(0).toUpperCase() + str.slice(1)
+
         getEventName = (providerName, propertyName) ->
-            return propertyName + _Str.capitalize(providerName) + "PropertyEvent"
+            return propertyName + capitalize(providerName) + "PropertyEvent"
 
         # one dot access restriction
         getClassAndMethod = (str) ->

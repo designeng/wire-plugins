@@ -1,9 +1,8 @@
 define [
     "underscore"
-    "underscore.string"
     "meld"
     "wire/lib/object"
-], (_, _Str, meld, object) ->
+], (_, meld, object) ->
 
     return (options) ->
 
@@ -11,6 +10,9 @@ define [
 
         isRef = (it) ->
             return it and object.hasOwn(it, '$ref')
+
+        capitalize = (str) ->
+            return str.charAt(0).toUpperCase() + str.slice(1)
 
         followFacetReady = (resolver, facet, wire) ->
             _.each facet.options, (providerFieldValue, consumerFieldName) ->
@@ -22,7 +24,7 @@ define [
                         "method"    : providerRefArray[1]
 
                     wire({$ref: provider["class"]}).then (providerClass) ->
-                        providerFieldSetterName = "set" + _Str.capitalize(provider["method"])
+                        providerFieldSetterName = "set" + capitalize(provider["method"])
 
                         # check for corresponding provider field method
                         if !_.isFunction(providerClass[providerFieldSetterName])
