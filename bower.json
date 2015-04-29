@@ -26,5 +26,5 @@
     "jquery": "~2.1.3",
     "eventEmitter": "~4.2.11"
   },
-  "_source": "git://github.com/designeng/wire-plugins.git",
+  "_source": "git://github.com/designeng/wire-plugins.git"
 }
