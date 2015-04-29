@@ -8,9 +8,12 @@ require.config
         "routerMainSpec": "specs/routerMainSpec"
 
         # plugins
-        "plugins/bunch"         : "../../src/js/data/bunch"
-        "plugins/follow"        : "../../src/js/data/follow"
-        "plugins/bahavior"      : "../../src/js/bahavior/bahavior"
+        "plugins/data/bunch"        : "../../src/js/data/bunch"
+        "plugins/data/follow"       : "../../src/js/data/follow"
+        "plugins/data/collection"   : "../../src/js/data/structure/collection"
+        "plugins/bahavior"          : "../../src/js/bahavior/bahavior"
+        "plugins/extender"          : "../../src/js/extender/extender"
+        "plugins/localizer"         : "../../src/js/extender/localizer"
 
     packages: [
         # lib packages
