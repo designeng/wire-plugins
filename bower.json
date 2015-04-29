@@ -1,13 +1,19 @@
 {
   "name": "wire-plugins",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "homepage": "https://github.com/designeng/wire-plugins",
+  "authors": [
+    "Denis Savenok <denissavenok@gmail.com>"
+  ],
+  "description": "plugins for wire.js based application",
+  "keywords": [],
+  "license": "MIT",
   "dependencies": {
     "when": "~3",
     "wire": "~0.10.9",
     "meld": "~1.3.0",
     "requirejs": "latest",
     "text": "latest",
-    "underscore.string": "~2.3.3",
     "requirejs-domready": "~2.0.1",
     "hbars": "git://github.com/jfparadis/requirejs-handlebars.git",
     "crossroads": "~0.12.0",
@@ -20,5 +26,6 @@
     "kefir-jquery": "~1.0.0",
     "jquery": "~2.1.3",
     "eventEmitter": "~4.2.11"
-  }
+  },
+  "_source": "git://github.com/designeng/wire-plugins.git",
 }

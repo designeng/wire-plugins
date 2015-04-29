@@ -1,4 +1,3 @@
-wire-plugins
-============
+##wire-plugins
 
-useful plugins for wire.js
+plugins for wire.js based application
