@@ -7,6 +7,11 @@ require.config
         "bootstrapSpec": "specs/bootstrapSpec"
         "routerMainSpec": "specs/routerMainSpec"
 
+        # plugins
+        "plugins/bunch"         : "../../src/js/data/bunch"
+        "plugins/follow"        : "../../src/js/data/follow"
+        "plugins/bahavior"      : "../../src/js/bahavior/bahavior"
+
     packages: [
         # lib packages
         {

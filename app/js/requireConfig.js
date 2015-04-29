@@ -2,7 +2,10 @@ require.config({
   baseUrl: "/app/js",
   paths: {
     "bootstrapSpec": "specs/bootstrapSpec",
-    "routerMainSpec": "specs/routerMainSpec"
+    "routerMainSpec": "specs/routerMainSpec",
+    "plugins/bunch": "../../src/js/data/bunch",
+    "plugins/follow": "../../src/js/data/follow",
+    "plugins/bahavior": "../../src/js/bahavior/bahavior"
   },
   packages: [
     {

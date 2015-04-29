@@ -10,6 +10,9 @@ module.exports = (grunt) ->
             coffee_app:
                 files: ['app/coffee/**/**.coffee']
                 tasks: ["coffee-compile-app"]
+            plugins_source:
+                files: ['src/coffee/**/**.coffee']
+                tasks: ["coffee-compile-plugins-source"]
             coffee_jasmine:
                 files: ['test/jasmine/coffee/**/**.coffee']
                 tasks: ["coffee-compile-jasmine"]
@@ -31,6 +34,17 @@ module.exports = (grunt) ->
                     cwd: 'app/coffee'
                     src: ['**/*.coffee']
                     dest: 'app/js'
+                    ext: '.js'
+                ]
+            plugins:
+                options: {
+                    bare: true
+                }
+                files: [
+                    expand: true
+                    cwd: 'src/coffee'
+                    src: ['**/*.coffee']
+                    dest: 'src/js'
                     ext: '.js'
                 ]
             jasmine:
@@ -73,7 +87,8 @@ module.exports = (grunt) ->
     grunt.registerTask "default", ["connect:server", "watch"]
 
     # compilation
-    grunt.registerTask "coffee-compile-app", ["newer:coffee:app"]
-    grunt.registerTask "coffee-compile-jasmine", ["newer:coffee:jasmine"]
+    grunt.registerTask "coffee-compile-app",            ["newer:coffee:app"]
+    grunt.registerTask "coffee-compile-jasmine",        ["newer:coffee:jasmine"]
+    grunt.registerTask "coffee-compile-plugins-source", ["newer:coffee:plugins"]
 
     grunt.registerTask "server", ["connect"]
