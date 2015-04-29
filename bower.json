@@ -6,7 +6,6 @@
     "Denis Savenok <denissavenok@gmail.com>"
   ],
   "description": "plugins for wire.js based application",
-  "keywords": [],
   "license": "MIT",
   "dependencies": {
     "when": "~3",
