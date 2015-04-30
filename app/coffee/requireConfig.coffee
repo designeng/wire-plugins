@@ -8,15 +8,15 @@ require.config
         "routerMainSpec": "specs/routerMainSpec"
 
         # plugins
-        "plugins/data/bunch"                    : "../../src/js/data/bunch"
-        "plugins/data/follow"                   : "../../src/js/data/follow"
-        "plugins/data/structure/collection"     : "../../src/js/data/structure/collection"
-        "plugins/bahavior"                      : "../../src/js/bahavior/bahavior"
-        "plugins/extender"                      : "../../src/js/extender/extender"
-        "plugins/localizer"                     : "../../src/js/extender/localizer"
+        "plugins/data/bunch"                    : "../../dist/data/bunch"
+        "plugins/data/follow"                   : "../../dist/data/follow"
+        "plugins/data/structure/collection"     : "../../dist/data/structure/collection"
+        "plugins/bahavior"                      : "../../dist/bahavior/bahavior"
+        "plugins/extender"                      : "../../dist/extender/extender"
+        "plugins/localizer"                     : "../../dist/extender/localizer"
 
         # plugins utils
-        "plugins/utils/normalize"                       : "../../src/js/utils/normalize"
+        "plugins/utils/normalize"               : "../../dist/utils/normalize"
 
     packages: [
         # lib packages

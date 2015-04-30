@@ -44,7 +44,7 @@ module.exports = (grunt) ->
                     expand: true
                     cwd: 'src/coffee'
                     src: ['**/*.coffee']
-                    dest: 'src/js'
+                    dest: 'dist'
                     ext: '.js'
                 ]
             jasmine:
