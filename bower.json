@@ -1,12 +1,17 @@
 {
   "name": "wire-plugins",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/designeng/wire-plugins",
   "authors": [
     "Denis Savenok <denissavenok@gmail.com>"
   ],
   "description": "plugins for wire.js based application",
   "license": "MIT",
+  "ignore":[
+    "**",
+    "!dist/**",
+    "!LICENSE.txt"
+  ],
   "dependencies": {
     "when": "~3",
     "wire": "~0.10.9",
@@ -25,6 +30,5 @@
     "kefir-jquery": "~1.0.0",
     "jquery": "~2.1.3",
     "eventEmitter": "~4.2.11"
-  },
-  "_source": "git://github.com/designeng/wire-plugins.git"
+  }
 }
