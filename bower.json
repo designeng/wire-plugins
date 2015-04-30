@@ -10,9 +10,11 @@
   "ignore":[
     "app/**",
     "src/**",
+    "test/**",
     "middleware/**",
     "Gruntfile.coffee",
     "package.json",
+    "bower.json",
     "README.md"
   ],
   "dependencies": {
