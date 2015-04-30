@@ -30,7 +30,6 @@ define [
             return context.validator.controller.disableField(fieldName)
         validator["enableField"] = (fieldName) ->
             return context.validator.controller.enableField(fieldName)
-
         validator["validateField"] = (fieldName, condition) ->
             condition = condition || "not blank"
             return context.validator.controller.invoke(fieldName, condition)

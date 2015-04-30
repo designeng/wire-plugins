@@ -1,4 +1,4 @@
-define(["underscore", "jquery", "when/pipeline", "behavior/prospect/scroll"], function(_, $, pipeline, scroll) {
+define(["underscore", "jquery", "when/pipeline"], function(_, $, pipeline) {
   var Controller;
   return Controller = (function() {
     function Controller() {}
@@ -43,17 +43,6 @@ define(["underscore", "jquery", "when/pipeline", "behavior/prospect/scroll"], fu
     Controller.prototype.getRegisteredError = function(obj) {
       obj["errors"] = this.errors[obj.name];
       return obj;
-    };
-
-    Controller.prototype.scrollToFocusInput = function(obj) {
-      var $input, $wrapper;
-      $input = $('input[name=' + obj.name + ']');
-      if ($input.length) {
-        if (!$input.is('[type=date]')) {
-          $wrapper = $input.closest('.layoutPage__sliderSlot');
-          return scroll.focusToElement($input, $wrapper, 'blur');
-        }
-      }
     };
 
     Controller.prototype.hideError = function(obj) {

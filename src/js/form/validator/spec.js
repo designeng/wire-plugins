@@ -62,7 +62,7 @@ define({
     },
     streams: {
       eventMap: {
-        "focus": "before:hideError | before:scrollToFocusInput | filter:isActualField | filter:checkForRegisteredError | getRegisteredError | displayError | alternative:displayHint",
+        "focus": "before:hideError | filter:isActualField | filter:checkForRegisteredError | getRegisteredError | displayError | alternative:displayHint",
         "keyup": "filter:isActualField |filter:checkAndShowRegisteredError | validate | displayError| highLight | alternative:validate",
         "change": "validate | registerError | highLight",
         "submit": "validateAll",

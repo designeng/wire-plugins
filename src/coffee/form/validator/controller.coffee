@@ -2,8 +2,7 @@ define [
     "underscore"
     "jquery"
     "when/pipeline"
-    "behavior/prospect/scroll"
-], (_, $, pipeline, scroll) ->
+], (_, $, pipeline) ->
 
     class Controller
         form: null
@@ -32,14 +31,6 @@ define [
         getRegisteredError: (obj) ->
             obj["errors"] = @errors[obj.name]
             return obj
-
-        # TODO: extract all custom jquery to outer logic
-        scrollToFocusInput: (obj) ->
-            $input = $('input[name=' + obj.name + ']')
-            if $input.length
-                unless $input.is('[type=date]')
-                    $wrapper = $input.closest('.layoutPage__sliderSlot')
-                    scroll.focusToElement($input, $wrapper, 'blur')
 
         hideError: (obj) ->
             @messageDisplay.controller.hideError()
