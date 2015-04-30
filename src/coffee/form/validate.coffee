@@ -81,14 +81,15 @@ define [
                                 wire:
                                     spec: "core/plugin/form/validator/spec"
                                     provide:
-                                        form                : target
-                                        target              : facet.target
-                                        fieldNames          : getFieldNames(options.strategy)
-                                        strategy            : options.strategy
-                                        successHandler      : options.successHandler
+                                        # || provides noop argument
+                                        form                : target || "<form></form>"
+                                        target              : facet.target || {}
+                                        fieldNames          : getFieldNames(options.strategy) || {}
+                                        strategy            : options.strategy || {}
+                                        successHandler      : options.successHandler || () ->
                                         streamsHooks        : options.streamsHooks || {}
-                                        displaySlot         : options.displaySlot
-                                        displaySlotClass    : options.displaySlotClass
+                                        displaySlot         : options.displaySlot || {length: 0}
+                                        displaySlotClass    : options.displaySlotClass || ""
                         }).then (context) ->
                             # check if facet.target is controller (not html element)
                             if !isElement facet.target

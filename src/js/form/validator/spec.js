@@ -1,21 +1,5 @@
 define({
   $plugins: ["wire/debug", "wire/dom", "wire/dom/render", "wire/on", "wire/connect", "wire/aop", "core/plugin/form/streams"],
-  strategy: {
-    literal: {}
-  },
-  form: "<form></form>",
-  fieldNames: {},
-  successHandler: function() {},
-  target: {
-    literal: {
-      extendStrategy: function() {}
-    }
-  },
-  displaySlot: {
-    length: 0
-  },
-  displaySlotClass: "",
-  streamsHooks: {},
   messageDisplay: {
     wire: {
       spec: "core/plugin/form/validator/display/spec",

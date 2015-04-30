@@ -9,23 +9,6 @@ define
         "core/plugin/form/streams"
     ]
 
-    # @provided: [form, fieldNames, slot, strategy]
-    # noops:
-    strategy:
-        literal: {}
-    form: "<form></form>"
-    # fieldNames shared between validator & controller
-    fieldNames: {}
-    successHandler: ->
-    target:
-        literal:
-            extendStrategy: () ->
-    displaySlot:
-        length: 0
-    displaySlotClass: ""
-    streamsHooks: {}
-    # /noops
-
     messageDisplay:
         wire:
             spec: "core/plugin/form/validator/display/spec"

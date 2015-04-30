@@ -78,14 +78,16 @@ define(["underscore", "when", "wire"], function(_, When, wire) {
               wire: {
                 spec: "core/plugin/form/validator/spec",
                 provide: {
-                  form: target,
-                  target: facet.target,
-                  fieldNames: getFieldNames(options.strategy),
-                  strategy: options.strategy,
-                  successHandler: options.successHandler,
+                  form: target || "<form></form>",
+                  target: facet.target || {},
+                  fieldNames: getFieldNames(options.strategy) || {},
+                  strategy: options.strategy || {},
+                  successHandler: options.successHandler || function() {},
                   streamsHooks: options.streamsHooks || {},
-                  displaySlot: options.displaySlot,
-                  displaySlotClass: options.displaySlotClass
+                  displaySlot: options.displaySlot || {
+                    length: 0
+                  },
+                  displaySlotClass: options.displaySlotClass || ""
                 }
               }
             }
