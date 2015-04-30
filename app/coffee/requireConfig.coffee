@@ -15,6 +15,9 @@ require.config
         "plugins/extender"                      : "../../src/js/extender/extender"
         "plugins/localizer"                     : "../../src/js/extender/localizer"
 
+        # plugins utils
+        "plugins/utils/normalize"                       : "../../src/js/utils/normalize"
+
     packages: [
         # lib packages
         {

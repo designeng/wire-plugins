@@ -8,7 +8,8 @@ require.config({
     "plugins/data/structure/collection": "../../src/js/data/structure/collection",
     "plugins/bahavior": "../../src/js/bahavior/bahavior",
     "plugins/extender": "../../src/js/extender/extender",
-    "plugins/localizer": "../../src/js/extender/localizer"
+    "plugins/localizer": "../../src/js/extender/localizer",
+    "plugins/utils/normalize": "../../src/js/utils/normalize"
   },
   packages: [
     {
