@@ -10,6 +10,7 @@
   "ignore":[
     "app/**",
     "src/**",
+    "middleware/**",
     "Gruntfile.coffee",
     "package.json",
     "README.md"
