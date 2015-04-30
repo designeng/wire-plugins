@@ -64,26 +64,16 @@ require.config
             name: "underscore"
             main: "lodash"
             location: "../../bower_components/lodash/dist"
-        },     
+        },
         {
             name: "jquery"
             main: "jquery"
             location: "../../bower_components/jquery/dist"
-        },        
+        },
         {
             name: "text"
             main: "text"
             location: "../../bower_components/text"
-        },
-        {   
-            name: "i18n"
-            main: "i18n"
-            location: "../../bower_components/requirejs-i18n"
-        },
-        {
-            name: "domReady"
-            main: "domReady"
-            location: "../../bower_components/requirejs-domready"
         },
         {
             name: "kefir"

@@ -57,14 +57,6 @@ require.config({
       main: "text",
       location: "../../bower_components/text"
     }, {
-      name: "i18n",
-      main: "i18n",
-      location: "../../bower_components/requirejs-i18n"
-    }, {
-      name: "domReady",
-      main: "domReady",
-      location: "../../bower_components/requirejs-domready"
-    }, {
       name: "kefir",
       main: "kefir",
       location: "../../bower_components/kefir/dist"
