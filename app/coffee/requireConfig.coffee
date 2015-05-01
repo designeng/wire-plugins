@@ -8,6 +8,11 @@ require.config
         "routerMainSpec": "specs/routerMainSpec"
 
         # plugins
+        # appRouter"
+        "plugins/appRouter"                     : "../../dist/routing/appRouter"
+        "plugins/routing/default/spec"          : "../../dist/routing/default/spec"
+        # /appRouter
+
         "plugins/data/bunch"                    : "../../dist/data/bunch"
         "plugins/data/follow"                   : "../../dist/data/follow"
         "plugins/data/structure/collection"     : "../../dist/data/structure/collection"
@@ -16,7 +21,9 @@ require.config
         "plugins/localizer"                     : "../../dist/extender/localizer"
 
         # plugins utils
-        "plugins/utils/normalize"               : "../../dist/utils/normalize"
+        "plugins/utils/normalize"                       : "../../dist/utils/normalize"
+        "plugins/utils/navigateToError"                 : "../../dist/utils/navigateToError"
+        "plugins/utils/routing/appRouterController"     : "../../dist/utils/routing/appRouterController"
 
     packages: [
         # lib packages
