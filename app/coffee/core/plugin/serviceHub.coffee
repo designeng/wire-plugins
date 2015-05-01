@@ -8,8 +8,8 @@ define [
     "core/servicehub/serviceMap"
     "core/servicehub/response/index"
     "core/util/net/isOnline"
-    "core/util/navigation/navigate"
-    "core/util/navigation/navigateToError"
+    "plugins/utils/navigation/navigate"
+    "plugins/utils/navigation/navigateToError"
 ], (_, When, meld, rest, mime, entity, serviceMap, serviceResponse, isOnline, navigate, navigateToError) ->
 
     return (options) ->

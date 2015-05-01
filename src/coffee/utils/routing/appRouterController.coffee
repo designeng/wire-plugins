@@ -1,6 +1,6 @@
 define [
     "crossroads"
-    "plugins/utils/navigateToError"
+    "plugins/utils/navigation/navigateToError"
 ], (crossroads, navigateToError) ->
 
     class AppRouterController

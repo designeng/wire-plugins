@@ -1,5 +1,5 @@
 define [
-    "core/util/navigation/navigate"
+    "plugins/utils/navigation/navigate"
 ], (navigate) ->
 
     class AccessPolicyProcessor

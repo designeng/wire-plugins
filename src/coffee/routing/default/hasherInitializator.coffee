@@ -1,6 +1,6 @@
 define [
     "hasher"
-    "core/util/navigation/navigate"
+    "plugins/utils/navigation/navigate"
 ], (hasher, navigate) ->
 
     class HasherInitializator

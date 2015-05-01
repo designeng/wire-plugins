@@ -1,4 +1,4 @@
-define(["underscore", "when", "when/pipeline", "when/sequence", "./tasksFactory", "core/util/navigation/navigate"], function(_, When, pipeline, sequence, TasksFactory, navigate) {
+define(["underscore", "when", "when/pipeline", "when/sequence", "./tasksFactory", "plugins/utils/navigation/navigate"], function(_, When, pipeline, sequence, TasksFactory, navigate) {
   var ChildContextProcessor;
   return ChildContextProcessor = (function() {
     ChildContextProcessor.prototype.parentContext = void 0;

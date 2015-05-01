@@ -12,7 +12,8 @@ require.config({
     "plugins/extender": "../../dist/extender/extender",
     "plugins/localizer": "../../dist/extender/localizer",
     "plugins/utils/normalize": "../../dist/utils/normalize",
-    "plugins/utils/navigateToError": "../../dist/utils/navigateToError",
+    "plugins/utils/navigation/navigateToError": "../../dist/utils/navigation/navigateToError",
+    "plugins/utils/navigation/navigate": "../../dist/utils/navigation/navigate",
     "plugins/utils/routing/appRouterController": "../../dist/utils/routing/appRouterController"
   },
   packages: [

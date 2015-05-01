@@ -1,4 +1,4 @@
-define(["core/util/navigation/navigate"], function(navigate) {
+define(["plugins/utils/navigation/navigate"], function(navigate) {
   var AccessPolicyProcessor;
   return AccessPolicyProcessor = (function() {
     function AccessPolicyProcessor() {}

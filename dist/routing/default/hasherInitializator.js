@@ -1,6 +1,6 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-define(["hasher", "core/util/navigation/navigate"], function(hasher, navigate) {
+define(["hasher", "plugins/utils/navigation/navigate"], function(hasher, navigate) {
   var HasherInitializator;
   return HasherInitializator = (function() {
     function HasherInitializator() {

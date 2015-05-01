@@ -1,7 +1,7 @@
 define [
     "underscore"
     "when"
-    "plugins/utils/navigateToError"
+    "plugins/utils/navigation/navigateToError"
     "./tasksFactory"
 ], (_, When, navigateToError, TasksFactory) ->
 

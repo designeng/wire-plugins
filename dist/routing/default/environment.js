@@ -1,4 +1,4 @@
-define(["underscore", "when", "plugins/utils/navigateToError"], function(_, When, navigateToError) {
+define(["underscore", "when", "plugins/utils/navigation/navigateToError"], function(_, When, navigateToError) {
   var Environment;
   return Environment = (function() {
     function Environment() {}

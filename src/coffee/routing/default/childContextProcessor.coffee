@@ -4,7 +4,7 @@ define [
     "when/pipeline"
     "when/sequence"
     "./tasksFactory"
-    "core/util/navigation/navigate"
+    "plugins/utils/navigation/navigate"
 ], (_, When, pipeline, sequence, TasksFactory, navigate) ->
 
     class ChildContextProcessor

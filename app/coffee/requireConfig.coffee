@@ -22,7 +22,8 @@ require.config
 
         # plugins utils
         "plugins/utils/normalize"                       : "../../dist/utils/normalize"
-        "plugins/utils/navigateToError"                 : "../../dist/utils/navigateToError"
+        "plugins/utils/navigation/navigateToError"      : "../../dist/utils/navigation/navigateToError"
+        "plugins/utils/navigation/navigate"             : "../../dist/utils/navigation/navigate"
         "plugins/utils/routing/appRouterController"     : "../../dist/utils/routing/appRouterController"
 
     packages: [

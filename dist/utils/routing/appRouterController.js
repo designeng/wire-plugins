@@ -1,4 +1,4 @@
-define(["crossroads", "plugins/utils/navigateToError"], function(crossroads, navigateToError) {
+define(["crossroads", "plugins/utils/navigation/navigateToError"], function(crossroads, navigateToError) {
   var AppRouterController, appRouterController;
   AppRouterController = (function() {
     function AppRouterController() {

@@ -1,7 +1,7 @@
 define [
     "underscore"
     "when"
-    "plugins/utils/navigateToError"
+    "plugins/utils/navigation/navigateToError"
 ], (_, When, navigateToError) ->
 
     class Environment

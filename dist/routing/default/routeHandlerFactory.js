@@ -1,4 +1,4 @@
-define(["underscore", "when", "plugins/utils/navigateToError", "./tasksFactory"], function(_, When, navigateToError, TasksFactory) {
+define(["underscore", "when", "plugins/utils/navigation/navigateToError", "./tasksFactory"], function(_, When, navigateToError, TasksFactory) {
   var RouteHandlerFactory;
   return RouteHandlerFactory = (function() {
     function RouteHandlerFactory() {

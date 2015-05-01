@@ -1,4 +1,4 @@
-define(["underscore", "when", "meld", "rest", "rest/interceptor/mime", "rest/interceptor/entity", "core/servicehub/serviceMap", "core/servicehub/response/index", "core/util/net/isOnline", "core/util/navigation/navigate", "core/util/navigation/navigateToError"], function(_, When, meld, rest, mime, entity, serviceMap, serviceResponse, isOnline, navigate, navigateToError) {
+define(["underscore", "when", "meld", "rest", "rest/interceptor/mime", "rest/interceptor/entity", "core/servicehub/serviceMap", "core/servicehub/response/index", "core/util/net/isOnline", "plugins/utils/navigation/navigate", "plugins/utils/navigation/navigateToError"], function(_, When, meld, rest, mime, entity, serviceMap, serviceResponse, isOnline, navigate, navigateToError) {
   return function(options) {
     var afterSendRequestAspect, bindToServiceFacet, patchPathWithData, removers, service;
     removers = [];
