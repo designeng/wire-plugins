@@ -3,13 +3,10 @@
 require [
     "wire"
     "hasher"
-    "wire!bootstrapSpec"
-    "routerMainSpec"
-], (wire, hasher, bootstrapCTX, routerMainSpec) ->
+    "wire!specs/bootstrapSpec"
+    "specs/appRouterSpec"
+], (wire, hasher, bootstrapCTX, appRouterSpec) ->
 
     bootstrapCTX.wire(
-        routerMainSpec
+        appRouterSpec
     ).then (resultCTX) ->
-
-        hasher.prependHash = ""
-        hasher.init()

@@ -1,6 +1,6 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-define(["underscore", "core/util/surrogate/Collection"], function(_, Collection) {
+define(["underscore", "plugins/utils/entity/Collection"], function(_, Collection) {
   var ContextController;
   return ContextController = (function() {
     function ContextController() {

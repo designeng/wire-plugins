@@ -3,8 +3,20 @@ require.config({
   paths: {
     "bootstrapSpec": "specs/bootstrapSpec",
     "routerMainSpec": "specs/routerMainSpec",
-    "plugins/appRouter": "../../dist/routing/appRouter",
+    "plugins/routing/appRouter": "../../dist/routing/appRouter",
     "plugins/routing/default/spec": "../../dist/routing/default/spec",
+    "plugins/routing/default/routeStrategy": "../../dist/routing/default/routeStrategy",
+    "plugins/routing/default/prepareBehavior": "../../dist/routing/default/prepareBehavior",
+    "plugins/routing/default/behaviorProcessor": "../../dist/routing/default/behaviorProcessor",
+    "plugins/routing/default/accessPolicyProcessor": "../../dist/routing/default/accessPolicyProcessor",
+    "plugins/routing/default/hasherInitializator": "../../dist/routing/default/hasherInitializator",
+    "plugins/routing/default/contextController": "../../dist/routing/default/contextController",
+    "plugins/routing/default/childContextProcessor": "../../dist/routing/default/childContextProcessor",
+    "plugins/routing/default/environment": "../../dist/routing/default/environment",
+    "plugins/routing/default/routeHandlerFactory": "../../dist/routing/default/routeHandlerFactory",
+    "plugins/routing/default/controller": "../../dist/routing/default/controller",
+    "plugins/routing/default/tasksFactory": "../../dist/routing/default/tasksFactory",
+    "plugins/routing/default/route": "../../dist/routing/default/route",
     "plugins/data/bunch": "../../dist/data/bunch",
     "plugins/data/follow": "../../dist/data/follow",
     "plugins/data/structure/collection": "../../dist/data/structure/collection",
@@ -14,7 +26,8 @@ require.config({
     "plugins/utils/normalize": "../../dist/utils/normalize",
     "plugins/utils/navigation/navigateToError": "../../dist/utils/navigation/navigateToError",
     "plugins/utils/navigation/navigate": "../../dist/utils/navigation/navigate",
-    "plugins/utils/routing/appRouterController": "../../dist/utils/routing/appRouterController"
+    "plugins/utils/routing/appRouterController": "../../dist/utils/routing/appRouterController",
+    "plugins/utils/entity/Collection": "../../dist/utils/entity/Collection"
   },
   packages: [
     {
@@ -61,6 +74,10 @@ require.config({
       name: "text",
       main: "text",
       location: "../../bower_components/text"
+    }, {
+      name: "domReady",
+      main: "domReady",
+      location: "../../bower_components/requirejs-domready"
     }, {
       name: "kefir",
       main: "kefir",

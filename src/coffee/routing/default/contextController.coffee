@@ -1,6 +1,6 @@
 define [
     "underscore"
-    "core/util/surrogate/Collection"
+    "plugins/utils/entity/Collection"
 ], (_, Collection) ->
 
     # TODO: merge with contextHashController?
