@@ -2,8 +2,7 @@ define [
     "underscore"
     "jquery"
     "when"
-    "handlebars"
-], (_, $, When, Handlebars) ->
+], (_, $, When) ->
 
     return (options) ->
 

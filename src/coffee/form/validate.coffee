@@ -2,7 +2,8 @@ define [
     "underscore"
     "when"
     "wire"
-], (_, When, wire) ->
+    "plugins/utils/form/displayListItemPattern"
+], (_, When, wire, displayListItemPattern) ->
 
     isElement = (node) ->
         return !!(node and (node.nodeName || (node.prop and node.attr and node.find)))
@@ -90,7 +91,7 @@ define [
                                         displaySlot             : options.displaySlot || {length: 0}
                                         displaySlotClass        : options.displaySlotClass || ""
                                         displayViewTemplate     : options.displayViewTemplate || "<ul></ul>"
-                                        displayListItemPattern  : options.displayListItemPattern || "<li></li>"
+                                        displayListItemPattern  : options.displayListItemPattern || displayListItemPattern
                         }).then (context) ->
                             # check if facet.target is controller (not html element)
                             if !isElement facet.target

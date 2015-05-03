@@ -1,4 +1,4 @@
-define(["underscore", "jquery", "when", "handlebars"], function(_, $, When, Handlebars) {
+define(["underscore", "jquery", "when"], function(_, $, When) {
   return function(options) {
     var clearAllItems, createElement, ensureListRootNode, insertItem, insertItems, look, lookFacet, pluginInstance;
     createElement = function(template, item) {

@@ -37,7 +37,8 @@ require.config({
     "plugins/utils/navigation/navigateToError": "../../dist/utils/navigation/navigateToError",
     "plugins/utils/navigation/navigate": "../../dist/utils/navigation/navigate",
     "plugins/utils/routing/appRouterController": "../../dist/utils/routing/appRouterController",
-    "plugins/utils/entity/Collection": "../../dist/utils/entity/Collection"
+    "plugins/utils/entity/Collection": "../../dist/utils/entity/Collection",
+    "plugins/utils/form/displayListItemPattern": "../../dist/utils/form/displayListItemPattern"
   },
   packages: [
     {

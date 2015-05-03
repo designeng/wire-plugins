@@ -49,9 +49,10 @@ define(["underscore", "jquery", "plugins/utils/normalize"], function(_, $, norma
         return this.displaySlot.hide();
       } else {
         messages = _.flatten(messages);
+        console.debug("displayListItemPattern", this.displayListItemPattern);
         htmlTags = _.reduce(messages, function(content, text) {
           if (text) {
-            content += _this.listItemPattern({
+            content += _this.displayListItemPattern({
               text: text,
               type: type
             });
