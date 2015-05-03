@@ -55,12 +55,6 @@ define(function() {
     contactPattern: {
       module: "hbs!components/contacts/contactPattern"
     },
-    displayViewTemplate: {
-      module: 'hbs!components/form/display/display'
-    },
-    displayListItemPattern: {
-      module: 'hbs!components/form/display/listItem'
-    },
     form: {
       render: {
         template: {

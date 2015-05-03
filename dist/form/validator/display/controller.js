@@ -39,7 +39,7 @@ define(["underscore", "jquery", "plugins/utils/normalize"], function(_, $, norma
     Controller.prototype.onReady = function() {
       var _ref;
       _ref = normalize(this.displayView, this.displaySlot), this.displayView = _ref[0], this.displaySlot = _ref[1];
-      return this.listRootNode = this.displayView.find("ul");
+      return this.listRootNode = this.displayView;
     };
 
     Controller.prototype.displayMessage = function(messages, type, name) {
@@ -58,7 +58,6 @@ define(["underscore", "jquery", "plugins/utils/normalize"], function(_, $, norma
           }
           return content;
         }, "");
-        console.debug("messagesHtml", messagesHtml);
         if (messagesHtml) {
           this.listRootNode.html(messagesHtml);
           classMessage = this.displaySlotClass + "__" + name;

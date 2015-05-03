@@ -34,7 +34,7 @@ define [
         onReady: ->
             [@displayView, @displaySlot] = normalize @displayView, @displaySlot
 
-            @listRootNode = @displayView.find("ul")
+            @listRootNode = @displayView
 
         # @param {Array} messages - errors or hint
         # @param {String} type - in ["error", "hint"]
@@ -50,8 +50,6 @@ define [
                     content += @displayListItemPattern({text: text, type: type}) if text
                     return content
                 , ""
-
-                console.debug "messagesHtml", messagesHtml
 
                 if messagesHtml
                     @listRootNode.html(messagesHtml)

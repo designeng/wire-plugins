@@ -88,7 +88,7 @@ define(["underscore", "when", "wire", "plugins/utils/form/displayListItemPattern
                     length: 0
                   },
                   displaySlotClass: options.displaySlotClass || "",
-                  displayViewTemplate: options.displayViewTemplate || "<ul></ul>",
+                  displayViewTemplate: options.displayViewTemplate || "<ul>ERRORS HERE...</ul>",
                   displayListItemPattern: options.displayListItemPattern || displayListItemPattern
                 }
               }

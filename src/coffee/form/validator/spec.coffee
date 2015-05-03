@@ -48,5 +48,5 @@ define
                 "keyup" : "filter:isActualField |filter:checkAndShowRegisteredError | validate | displayError| highLight | alternative:validate"
                 "change": "validate | registerError | highLight"
                 "submit": "validateAll"
-                "blur"  : "hideError"
+                # "blur"  : "hideError"
             hooks: {$ref: 'streamsHooks'}
