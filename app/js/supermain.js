@@ -33,6 +33,7 @@ require.config({
     "plugins/template/hb": "../../dist/template/hb",
     "plugins/template/look": "../../dist/template/look",
     "plugins/template/bind": "../../dist/template/bind",
+    "plugins/template/hbsResolver": "../../dist/template/hbsResolver",
     "plugins/utils/normalize": "../../dist/utils/normalize",
     "plugins/utils/navigation/navigateToError": "../../dist/utils/navigation/navigateToError",
     "plugins/utils/navigation/navigate": "../../dist/utils/navigation/navigate",
