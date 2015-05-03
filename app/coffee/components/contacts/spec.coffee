@@ -8,6 +8,7 @@ define ->
         'plugins/template/hb'
         'plugins/template/look'
         'plugins/form/validate'
+        'plugins/template/hbsResolver'
     ]
 
     view:
@@ -26,8 +27,8 @@ define ->
         look:
             to:
                 collection: {$ref: 'contacts'}
-            listPattern: {$ref: 'contactsListPattern'}
-            itemPattern: {$ref: 'contactPattern'}
+            listPattern: {$ref: 'hbsResolver!components/contacts/contactsListPattern'}
+            itemPattern: {$ref: 'hbsResolver!components/contacts/contactPattern'}
 
     contacts:
         create:
@@ -35,12 +36,6 @@ define ->
             args: [
                 {uniqKey: "email"}
             ]
-
-    contactsListPattern:
-        module: "hbs!components/contacts/contactsListPattern"
-
-    contactPattern:
-        module: "hbs!components/contacts/contactPattern"
 
     form:
         render:

@@ -1,6 +1,6 @@
 define(function() {
   return {
-    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look', 'plugins/form/validate'],
+    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look', 'plugins/form/validate', 'plugins/template/hbsResolver'],
     view: {
       render: {
         template: {
@@ -32,10 +32,10 @@ define(function() {
           }
         },
         listPattern: {
-          $ref: 'contactsListPattern'
+          $ref: 'hbsResolver!components/contacts/contactsListPattern'
         },
         itemPattern: {
-          $ref: 'contactPattern'
+          $ref: 'hbsResolver!components/contacts/contactPattern'
         }
       }
     },
@@ -48,12 +48,6 @@ define(function() {
           }
         ]
       }
-    },
-    contactsListPattern: {
-      module: "hbs!components/contacts/contactsListPattern"
-    },
-    contactPattern: {
-      module: "hbs!components/contacts/contactPattern"
     },
     form: {
       render: {
