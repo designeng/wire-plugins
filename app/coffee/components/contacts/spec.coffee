@@ -42,12 +42,6 @@ define ->
     contactPattern:
         module: "hbs!components/contacts/contactPattern"
 
-    # displayViewTemplate:
-    #     module: 'hbs!components/form/display/display'
-
-    # displayListItemPattern:
-    #     module: 'hbs!components/form/display/listItem'
-
     form:
         render:
             template:
@@ -64,10 +58,6 @@ define ->
             displaySlot: {$ref: 'dom.first!.displayErrorsWrapper', at: 'form'}
             displaySlotClass: "displaySlotClass"
             successHandler: {$ref: 'controller.addContact'}
-
-            # displayViewTemplate     : {$ref: 'displayViewTemplate'}
-            # displayListItemPattern  : {$ref: 'displayListItemPattern'}
-
 
     nameMessage: "Поле может содержать только русские и английские буквы и дефис"
 

@@ -90,7 +90,7 @@ define [
                                         streamsHooks            : options.streamsHooks || {}
                                         displaySlot             : options.displaySlot || {length: 0}
                                         displaySlotClass        : options.displaySlotClass || ""
-                                        displayViewTemplate     : options.displayViewTemplate || "<ul>ERRORS HERE...</ul>"
+                                        displayViewTemplate     : options.displayViewTemplate || "<ul></ul>"
                                         displayListItemPattern  : options.displayListItemPattern || displayListItemPattern
                         }).then (context) ->
                             # check if facet.target is controller (not html element)
