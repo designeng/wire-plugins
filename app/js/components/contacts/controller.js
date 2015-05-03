@@ -25,6 +25,14 @@ define(["jquery", "underscore"], function($, _) {
       });
     };
 
+    Controller.prototype.onSubmit = function() {
+      return false;
+    };
+
+    Controller.prototype.addContact = function(item) {
+      return console.debug("addContact", item);
+    };
+
     return Controller;
 
   })();

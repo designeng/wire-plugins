@@ -21,3 +21,9 @@ define [
                 lastName: "THREE"
                 email: "test2@r.ru"
             }
+
+        onSubmit: ->
+            return false
+
+        addContact: (item) ->
+            console.debug "addContact", item

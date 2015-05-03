@@ -1,6 +1,6 @@
 define(function() {
   return {
-    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look'],
+    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look', 'plugins/form/validate'],
     view: {
       render: {
         template: {
@@ -55,6 +55,12 @@ define(function() {
     contactPattern: {
       module: "hbs!components/contacts/contactPattern"
     },
+    displayViewTemplate: {
+      module: 'hbs!components/form/display/display'
+    },
+    displayListItemPattern: {
+      module: 'hbs!components/form/display/listItem'
+    },
     form: {
       render: {
         template: {
@@ -66,7 +72,26 @@ define(function() {
           $ref: 'dom.first!#contactsFormWrapper',
           at: 'view'
         }
+      },
+      validate: {
+        fieldNames: ["firstName", "lastName", "email"],
+        strategy: {
+          $ref: 'formStrategy'
+        },
+        displaySlot: {
+          $ref: 'dom.first!.displayErrorsWrapper',
+          at: 'form'
+        },
+        displaySlotClass: "displaySlotClass",
+        successHandler: {
+          $ref: 'controller.addContact'
+        }
       }
+    },
+    formStrategy: {
+      "firstName": {},
+      "lastName": {},
+      "email": {}
     },
     controller: {
       create: "components/contacts/controller",
@@ -79,6 +104,13 @@ define(function() {
         },
         view: {
           $ref: 'view'
+        }
+      },
+      on: {
+        form: {
+          "submit": {
+            $ref: 'controller.onSubmit'
+          }
         }
       },
       ready: {

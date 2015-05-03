@@ -76,7 +76,7 @@ define(["underscore", "when", "wire"], function(_, When, wire) {
             formView: target,
             validator: {
               wire: {
-                spec: "core/plugin/form/validator/spec",
+                spec: "plugins/form/validator/spec",
                 provide: {
                   form: target || "<form></form>",
                   target: facet.target || {},
@@ -87,7 +87,9 @@ define(["underscore", "when", "wire"], function(_, When, wire) {
                   displaySlot: options.displaySlot || {
                     length: 0
                   },
-                  displaySlotClass: options.displaySlotClass || ""
+                  displaySlotClass: options.displaySlotClass || "",
+                  displayViewTemplate: options.displayViewTemplate || "<ul></ul>",
+                  displayListItemPattern: options.displayListItemPattern || "<li></li>"
                 }
               }
             }

@@ -45,7 +45,6 @@ define [
 
                 signal = collection.getSignal()
                 signal.add (event, entity) ->
-                    console.debug "event::::::::::", event
                     if event is "add"
                         listNode = ensureListRootNode(target, listPattern, entity)
                         insertItem(listNode, entity, itemPattern)

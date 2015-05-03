@@ -8,20 +8,16 @@ define
     # default displayView
     displayView:
         render:
-            template:
-                module: "text!core/plugin/form/validator/display/display.html"
+            template: {$ref: 'displayViewTemplate'}
         insert:
             at: {$ref: 'displaySlot'}
 
-    listItemPattern:
-        module: "hbs!core/plugin/form/validator/display/listItem"
-
     controller:
-        create: "core/plugin/form/validator/display/controller"
+        create: "plugins/form/validator/display/controller"
         properties:
-            displayView         : {$ref: 'displayView'}
-            listItemPattern     : {$ref: 'listItemPattern'}
-            displaySlot         : {$ref: 'displaySlot'}
-            displaySlotClass    : {$ref: 'displaySlotClass'}
+            displayView                 : {$ref: 'displayView'}
+            displayListItemPattern      : {$ref: 'displayListItemPattern'}
+            displaySlot                 : {$ref: 'displaySlot'}
+            displaySlotClass            : {$ref: 'displaySlotClass'}
         ready:
             onReady: {}

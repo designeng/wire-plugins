@@ -78,17 +78,19 @@ define [
                             formView: target
                             validator:
                                 wire:
-                                    spec: "core/plugin/form/validator/spec"
+                                    spec: "plugins/form/validator/spec"
                                     provide:
                                         # || provides noop argument
-                                        form                : target || "<form></form>"
-                                        target              : facet.target || {}
-                                        fieldNames          : getFieldNames(options.strategy) || {}
-                                        strategy            : options.strategy || {}
-                                        successHandler      : options.successHandler || () ->
-                                        streamsHooks        : options.streamsHooks || {}
-                                        displaySlot         : options.displaySlot || {length: 0}
-                                        displaySlotClass    : options.displaySlotClass || ""
+                                        form                    : target || "<form></form>"
+                                        target                  : facet.target || {}
+                                        fieldNames              : getFieldNames(options.strategy) || {}
+                                        strategy                : options.strategy || {}
+                                        successHandler          : options.successHandler || () ->
+                                        streamsHooks            : options.streamsHooks || {}
+                                        displaySlot             : options.displaySlot || {length: 0}
+                                        displaySlotClass        : options.displaySlotClass || ""
+                                        displayViewTemplate     : options.displayViewTemplate || "<ul></ul>"
+                                        displayListItemPattern  : options.displayListItemPattern || "<li></li>"
                         }).then (context) ->
                             # check if facet.target is controller (not html element)
                             if !isElement facet.target
