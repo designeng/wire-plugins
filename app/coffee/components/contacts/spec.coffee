@@ -54,7 +54,7 @@ define ->
             displaySlotClass: "displaySlotClass"
             successHandler: {$ref: 'controller.addContact'}
 
-    nameMessage: "Поле может содержать только русские и английские буквы и дефис"
+    nameMessage: "The field can contain only english and russian letters and hyphen"
 
     formStrategy:
         firstName:
@@ -68,7 +68,7 @@ define ->
         email: 
             "emailValidation":
                 rule: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g   #`'"'
-                message: "Введите email"
+                message: "Input email"
 
     controller:
         create: "components/contacts/controller"
