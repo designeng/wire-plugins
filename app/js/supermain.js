@@ -22,7 +22,10 @@ require.config({
     "plugins/data/structure/collection": "../../dist/data/structure/collection",
     "plugins/bahavior": "../../dist/bahavior/bahavior",
     "plugins/extender": "../../dist/extender/extender",
-    "plugins/localizer": "../../dist/extender/localizer",
+    "plugins/localizer": "../../dist/localizer/localizer",
+    "plugins/template/hb": "../../dist/template/hb",
+    "plugins/template/look": "../../dist/template/look",
+    "plugins/template/bind": "../../dist/template/bind",
     "plugins/utils/normalize": "../../dist/utils/normalize",
     "plugins/utils/navigation/navigateToError": "../../dist/utils/navigation/navigateToError",
     "plugins/utils/navigation/navigate": "../../dist/utils/navigation/navigate",
@@ -75,6 +78,10 @@ require.config({
       main: "text",
       location: "../../bower_components/text"
     }, {
+      name: "hbs",
+      main: "hbs",
+      location: "../../bower_components/requirejs-hbs"
+    }, {
       name: "domReady",
       main: "domReady",
       location: "../../bower_components/requirejs-domready"
@@ -92,7 +99,10 @@ require.config({
       location: "../../bower_components/eventEmitter"
     }
   ],
-  shim: {}
+  shim: {},
+  hbs: {
+    templateExtension: ".html"
+  }
 });
 
 require(["wire", "hasher", "wire!specs/bootstrapSpec", "specs/appRouterSpec"], function(wire, hasher, bootstrapCTX, appRouterSpec) {
