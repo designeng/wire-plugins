@@ -1,8 +1,7 @@
 define [
     "jquery"
     "underscore"
-    "./hashCode"
-], ($, _, hashCode) ->
+], ($, _) ->
 
     class Controller
 

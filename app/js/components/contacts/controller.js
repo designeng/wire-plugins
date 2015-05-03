@@ -1,6 +1,6 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-define(["jquery", "underscore", "./hashCode"], function($, _, hashCode) {
+define(["jquery", "underscore"], function($, _) {
   var Controller;
   return Controller = (function() {
     function Controller() {
