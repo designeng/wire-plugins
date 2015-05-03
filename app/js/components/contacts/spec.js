@@ -88,10 +88,30 @@ define(function() {
         }
       }
     },
+    nameMessage: "Поле может содержать только русские и английские буквы и дефис",
     formStrategy: {
-      "firstName": {},
-      "lastName": {},
-      "email": {}
+      firstName: {
+        "firstNameValidation": {
+          rule: /^[a-zA-Zа-яА-ЯёЁ]+[a-zA-Zа-яА-ЯёЁ\-]*$/g,
+          message: {
+            $ref: 'nameMessage'
+          }
+        }
+      },
+      lastName: {
+        "lastNameValidation": {
+          rule: /^[a-zA-Zа-яА-ЯёЁ]+[a-zA-Zа-яА-ЯёЁ\-]*$/g,
+          message: {
+            $ref: 'nameMessage'
+          }
+        }
+      },
+      email: {
+        "emailValidation": {
+          rule: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g,
+          message: "Введите email"
+        }
+      }
     },
     controller: {
       create: "components/contacts/controller",
