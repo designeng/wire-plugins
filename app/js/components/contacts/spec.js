@@ -70,6 +70,17 @@ define(function() {
     },
     controller: {
       create: "components/contacts/controller",
+      properties: {
+        contacts: {
+          $ref: 'contacts'
+        },
+        contactsList: {
+          $ref: 'contactsList'
+        },
+        view: {
+          $ref: 'view'
+        }
+      },
       ready: {
         onReady: {}
       }

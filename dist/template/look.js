@@ -33,6 +33,7 @@ define(["underscore", "jquery", "when", "handlebars"], function(_, $, When, Hand
     };
     look = function(facet, options, wire) {
       var target;
+      console.debug("look facet");
       target = $(facet.target);
       return wire(facet.options).then(function(options) {
         var collection, itemPattern, listPattern, signal;
@@ -42,6 +43,7 @@ define(["underscore", "jquery", "when", "handlebars"], function(_, $, When, Hand
         signal = collection.getSignal();
         return signal.add(function(event, entity) {
           var items, listNode;
+          console.debug("event::::::::::", event);
           if (event === "add") {
             listNode = ensureListRootNode(target, listPattern, entity);
             insertItem(listNode, entity, itemPattern);
@@ -59,7 +61,7 @@ define(["underscore", "jquery", "when", "handlebars"], function(_, $, When, Hand
     return pluginInstance = {
       facets: {
         look: {
-          ready: lookFacet
+          "ready:before": lookFacet
         }
       }
     };

@@ -36,6 +36,7 @@ define [
                 return ensureListRootNode(target, listPattern, item)
 
         look = (facet, options, wire) ->
+            console.debug "look facet"
             target = $(facet.target)
             wire(facet.options).then (options) ->
                 collection  = options.to.collection
@@ -44,6 +45,7 @@ define [
 
                 signal = collection.getSignal()
                 signal.add (event, entity) ->
+                    console.debug "event::::::::::", event
                     if event is "add"
                         listNode = ensureListRootNode(target, listPattern, entity)
                         insertItem(listNode, entity, itemPattern)
@@ -58,4 +60,4 @@ define [
         return pluginInstance = 
             facets:
                 look:
-                    ready       : lookFacet
+                    "ready:before"       : lookFacet
