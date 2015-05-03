@@ -43,14 +43,13 @@ define(["underscore", "jquery", "plugins/utils/normalize"], function(_, $, norma
     };
 
     Controller.prototype.displayMessage = function(messages, type, name) {
-      var classMessage, htmlTags,
+      var classMessage, messagesHtml,
         _this = this;
       if (!messages || !messages.length) {
         return this.displaySlot.hide();
       } else {
         messages = _.flatten(messages);
-        console.debug("displayListItemPattern", this.displayListItemPattern);
-        htmlTags = _.reduce(messages, function(content, text) {
+        messagesHtml = _.reduce(messages, function(content, text) {
           if (text) {
             content += _this.displayListItemPattern({
               text: text,
@@ -59,8 +58,9 @@ define(["underscore", "jquery", "plugins/utils/normalize"], function(_, $, norma
           }
           return content;
         }, "");
-        if (htmlTags) {
-          this.listRootNode.html(htmlTags);
+        console.debug("messagesHtml", messagesHtml);
+        if (messagesHtml) {
+          this.listRootNode.html(messagesHtml);
           classMessage = this.displaySlotClass + "__" + name;
           if (type) {
             classMessage += ' ' + this.displaySlotClass + "_type_" + type;

@@ -46,15 +46,15 @@ define [
                 # all wrapped to arrays messages should be unwrapped
                 messages = _.flatten messages
 
-                console.debug "displayListItemPattern", @displayListItemPattern
-
-                htmlTags = _.reduce messages, (content, text) =>
+                messagesHtml = _.reduce messages, (content, text) =>
                     content += @displayListItemPattern({text: text, type: type}) if text
                     return content
                 , ""
 
-                if htmlTags
-                    @listRootNode.html(htmlTags)
+                console.debug "messagesHtml", messagesHtml
+
+                if messagesHtml
+                    @listRootNode.html(messagesHtml)
 
                     classMessage = @displaySlotClass + "__" + name
                     classMessage += ' ' + @displaySlotClass + "_type_" + type if type
