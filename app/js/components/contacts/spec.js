@@ -1,6 +1,6 @@
 define(function() {
   return {
-    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look'],
+    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look', 'plugins/form/validate'],
     view: {
       render: {
         template: {
@@ -66,6 +66,45 @@ define(function() {
           $ref: 'dom.first!#contactsFormWrapper',
           at: 'view'
         }
+      },
+      validate: {
+        fieldNames: ["firstName", "lastName", "email"],
+        strategy: {
+          $ref: 'formStrategy'
+        },
+        displaySlot: {
+          $ref: 'dom.first!.displayErrorsWrapper',
+          at: 'form'
+        },
+        displaySlotClass: "displaySlotClass",
+        successHandler: {
+          $ref: 'controller.addContact'
+        }
+      }
+    },
+    nameMessage: "Поле может содержать только русские и английские буквы и дефис",
+    formStrategy: {
+      firstName: {
+        "firstNameValidation": {
+          rule: /^[a-zA-Zа-яА-ЯёЁ]+[a-zA-Zа-яА-ЯёЁ\-]*$/g,
+          message: {
+            $ref: 'nameMessage'
+          }
+        }
+      },
+      lastName: {
+        "lastNameValidation": {
+          rule: /^[a-zA-Zа-яА-ЯёЁ]+[a-zA-Zа-яА-ЯёЁ\-]*$/g,
+          message: {
+            $ref: 'nameMessage'
+          }
+        }
+      },
+      email: {
+        "emailValidation": {
+          rule: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g,
+          message: "Введите email"
+        }
       }
     },
     controller: {
@@ -79,6 +118,13 @@ define(function() {
         },
         view: {
           $ref: 'view'
+        }
+      },
+      on: {
+        form: {
+          "submit": {
+            $ref: 'controller.onSubmit'
+          }
         }
       },
       ready: {

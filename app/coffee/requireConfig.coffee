@@ -25,6 +25,17 @@ require.config
         "plugins/routing/default/route"                     : "../../dist/routing/default/route"
         # /appRouter
 
+        # validate
+        "plugins/form/validate"                             : "../../dist/form/validate"
+        "plugins/form/validator/spec"                       : "../../dist/form/validator/spec"
+        "plugins/form/streams"                              : "../../dist/form/streams"
+        "plugins/form/validator/validator"                  : "../../dist/form/validator/validator"
+        "plugins/form/validator/controller"                 : "../../dist/form/validator/controller"
+        "plugins/form/validator/display/spec"               : "../../dist/form/validator/display/spec"
+        "plugins/form/validator/display/controller"         : "../../dist/form/validator/display/controller"
+        # /validate
+
+
         "plugins/data/bunch"                    : "../../dist/data/bunch"
         "plugins/data/follow"                   : "../../dist/data/follow"
         "plugins/data/structure/collection"     : "../../dist/data/structure/collection"
@@ -41,6 +52,7 @@ require.config
         "plugins/utils/navigation/navigate"             : "../../dist/utils/navigation/navigate"
         "plugins/utils/routing/appRouterController"     : "../../dist/utils/routing/appRouterController"
         "plugins/utils/entity/Collection"               : "../../dist/utils/entity/Collection"
+        "plugins/utils/form/displayListItemPattern"     : "../../dist/utils/form/displayListItemPattern"
 
     packages: [
         # lib packages

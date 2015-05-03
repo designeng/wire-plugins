@@ -17,6 +17,13 @@ require.config({
     "plugins/routing/default/controller": "../../dist/routing/default/controller",
     "plugins/routing/default/tasksFactory": "../../dist/routing/default/tasksFactory",
     "plugins/routing/default/route": "../../dist/routing/default/route",
+    "plugins/form/validate": "../../dist/form/validate",
+    "plugins/form/validator/spec": "../../dist/form/validator/spec",
+    "plugins/form/streams": "../../dist/form/streams",
+    "plugins/form/validator/validator": "../../dist/form/validator/validator",
+    "plugins/form/validator/controller": "../../dist/form/validator/controller",
+    "plugins/form/validator/display/spec": "../../dist/form/validator/display/spec",
+    "plugins/form/validator/display/controller": "../../dist/form/validator/display/controller",
     "plugins/data/bunch": "../../dist/data/bunch",
     "plugins/data/follow": "../../dist/data/follow",
     "plugins/data/structure/collection": "../../dist/data/structure/collection",
@@ -30,7 +37,8 @@ require.config({
     "plugins/utils/navigation/navigateToError": "../../dist/utils/navigation/navigateToError",
     "plugins/utils/navigation/navigate": "../../dist/utils/navigation/navigate",
     "plugins/utils/routing/appRouterController": "../../dist/utils/routing/appRouterController",
-    "plugins/utils/entity/Collection": "../../dist/utils/entity/Collection"
+    "plugins/utils/entity/Collection": "../../dist/utils/entity/Collection",
+    "plugins/utils/form/displayListItemPattern": "../../dist/utils/form/displayListItemPattern"
   },
   packages: [
     {

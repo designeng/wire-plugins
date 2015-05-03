@@ -1,4 +1,4 @@
-define(["underscore", "when", "wire"], function(_, When, wire) {
+define(["underscore", "when", "wire", "plugins/utils/form/displayListItemPattern"], function(_, When, wire, displayListItemPattern) {
   var createPluginApi, createValidatorPromise, getFieldNames, isElement;
   isElement = function(node) {
     return !!(node && (node.nodeName || (node.prop && node.attr && node.find)));
@@ -76,7 +76,7 @@ define(["underscore", "when", "wire"], function(_, When, wire) {
             formView: target,
             validator: {
               wire: {
-                spec: "core/plugin/form/validator/spec",
+                spec: "plugins/form/validator/spec",
                 provide: {
                   form: target || "<form></form>",
                   target: facet.target || {},
@@ -87,7 +87,9 @@ define(["underscore", "when", "wire"], function(_, When, wire) {
                   displaySlot: options.displaySlot || {
                     length: 0
                   },
-                  displaySlotClass: options.displaySlotClass || ""
+                  displaySlotClass: options.displaySlotClass || "",
+                  displayViewTemplate: options.displayViewTemplate || "<ul>ERRORS HERE...</ul>",
+                  displayListItemPattern: options.displayListItemPattern || displayListItemPattern
                 }
               }
             }

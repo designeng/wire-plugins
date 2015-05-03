@@ -1,22 +1,14 @@
 define({
-  $plugins: ["wire/debug", "wire/dom", "wire/dom/render", "wire/on", "wire/connect", "wire/aop", "core/plugin/form/streams"],
+  $plugins: ["wire/debug", "wire/dom", "wire/dom/render", "wire/on", "wire/connect", "wire/aop", "plugins/form/streams"],
   messageDisplay: {
     wire: {
-      spec: "core/plugin/form/validator/display/spec",
-      provide: {
-        displaySlot: {
-          $ref: 'displaySlot'
-        },
-        displaySlotClass: {
-          $ref: 'displaySlotClass'
-        }
-      }
+      spec: "plugins/form/validator/display/spec"
     }
   },
   defaultPointMessage: "Пожалуйста, заполните это поле",
   validator: {
     create: {
-      module: "core/plugin/form/validator/validator",
+      module: "plugins/form/validator/validator",
       args: [
         {
           strategy: {
@@ -35,7 +27,7 @@ define({
     }
   },
   controller: {
-    create: "core/plugin/form/validator/controller",
+    create: "plugins/form/validator/controller",
     properties: {
       form: {
         $ref: 'form'
@@ -65,8 +57,7 @@ define({
         "focus": "before:hideError | filter:isActualField | filter:checkForRegisteredError | getRegisteredError | displayError | alternative:displayHint",
         "keyup": "filter:isActualField |filter:checkAndShowRegisteredError | validate | displayError| highLight | alternative:validate",
         "change": "validate | registerError | highLight",
-        "submit": "validateAll",
-        "blur": "hideError"
+        "submit": "validateAll"
       },
       hooks: {
         $ref: 'streamsHooks'

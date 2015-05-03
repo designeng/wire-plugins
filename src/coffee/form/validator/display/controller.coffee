@@ -34,7 +34,7 @@ define [
         onReady: ->
             [@displayView, @displaySlot] = normalize @displayView, @displaySlot
 
-            @listRootNode = @displayView.find("ul")
+            @listRootNode = @displayView
 
         # @param {Array} messages - errors or hint
         # @param {String} type - in ["error", "hint"]
@@ -46,13 +46,13 @@ define [
                 # all wrapped to arrays messages should be unwrapped
                 messages = _.flatten messages
 
-                htmlTags = _.reduce messages, (content, text) =>
-                    content += @listItemPattern({text: text, type: type}) if text
+                messagesHtml = _.reduce messages, (content, text) =>
+                    content += @displayListItemPattern({text: text, type: type}) if text
                     return content
                 , ""
 
-                if htmlTags
-                    @listRootNode.html(htmlTags)
+                if messagesHtml
+                    @listRootNode.html(messagesHtml)
 
                     classMessage = @displaySlotClass + "__" + name
                     classMessage += ' ' + @displaySlotClass + "_type_" + type if type

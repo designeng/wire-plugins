@@ -1,4 +1,4 @@
-define(["underscore", "jquery", "when", "handlebars"], function(_, $, When, Handlebars) {
+define(["underscore", "jquery", "when"], function(_, $, When) {
   return function(options) {
     var clearAllItems, createElement, ensureListRootNode, insertItem, insertItems, look, lookFacet, pluginInstance;
     createElement = function(template, item) {
@@ -43,7 +43,6 @@ define(["underscore", "jquery", "when", "handlebars"], function(_, $, When, Hand
         signal = collection.getSignal();
         return signal.add(function(event, entity) {
           var items, listNode;
-          console.debug("event::::::::::", event);
           if (event === "add") {
             listNode = ensureListRootNode(target, listPattern, entity);
             insertItem(listNode, entity, itemPattern);

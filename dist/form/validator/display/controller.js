@@ -39,27 +39,27 @@ define(["underscore", "jquery", "plugins/utils/normalize"], function(_, $, norma
     Controller.prototype.onReady = function() {
       var _ref;
       _ref = normalize(this.displayView, this.displaySlot), this.displayView = _ref[0], this.displaySlot = _ref[1];
-      return this.listRootNode = this.displayView.find("ul");
+      return this.listRootNode = this.displayView;
     };
 
     Controller.prototype.displayMessage = function(messages, type, name) {
-      var classMessage, htmlTags,
+      var classMessage, messagesHtml,
         _this = this;
       if (!messages || !messages.length) {
         return this.displaySlot.hide();
       } else {
         messages = _.flatten(messages);
-        htmlTags = _.reduce(messages, function(content, text) {
+        messagesHtml = _.reduce(messages, function(content, text) {
           if (text) {
-            content += _this.listItemPattern({
+            content += _this.displayListItemPattern({
               text: text,
               type: type
             });
           }
           return content;
         }, "");
-        if (htmlTags) {
-          this.listRootNode.html(htmlTags);
+        if (messagesHtml) {
+          this.listRootNode.html(messagesHtml);
           classMessage = this.displaySlotClass + "__" + name;
           if (type) {
             classMessage += ' ' + this.displaySlotClass + "_type_" + type;
