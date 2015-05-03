@@ -45,7 +45,8 @@ define [
         addItem: (item) ->
             item = setUniqId item, @uniqKey
             # if uniqKey not defined on collection, _id will be uniq by default
-            return if @uniqKey and @find {_id: item._id}
+            if @uniqKey and itemExists = @find {_id: item._id}
+                return @_signal.dispatch("keyRepeat", itemExists)
 
             @_source.push item
             @_signal.dispatch("add", item)
@@ -100,3 +101,8 @@ define [
             if !items || !items.length
                 @_source = []
             @_signal.dispatch("reset", @getSource())
+
+        onKeyRepeat: (callback) ->
+            @_signal.add (event, entity) ->
+                if event is "keyRepeat"
+                    callback(entity)

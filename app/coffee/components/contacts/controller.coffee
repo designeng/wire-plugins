@@ -1,15 +1,26 @@
 define [
     "jquery"
     "underscore"
-], ($, _) ->
+    "./hashCode"
+], ($, _, hashCode) ->
 
     class Controller
 
-        onReady: ->
-            _.defer @add
+        contactsRootElement: null
 
-        add: =>
-            console.debug "added items"
+        onReady: ->
+            @contactsPreloader = $(".contacts-preloader")
+
+            @contacts.onKeyRepeat @displayWarning
+
+            # ajax data loading imitation
+            setTimeout () =>
+                @add()
+            , 1000
+
+        add: ->
+            @contactsPreloader.hide()
+
             @contacts.addItem {
                 firstName: "ONE"
                 lastName: "TWO"
@@ -25,5 +36,14 @@ define [
         onSubmit: ->
             return false
 
-        addContact: (item) ->
-            console.debug "addContact", item
+        addContact: (item) =>
+            @clearAllWarnings()
+            @contacts.addItem item
+
+        clearAllWarnings: ->
+            _.forEach @contactsList.getElementsByTagName("li"), (element) ->
+                $(element).removeClass "list-group-item-warning"
+
+        displayWarning: (item) =>
+            key = @transformer item._id
+            $("#" + key).addClass "list-group-item-warning"

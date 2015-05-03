@@ -4,14 +4,24 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
     createElement = function(template, item) {
       return $.parseHTML(template(item));
     };
-    insertItem = function(listNode, item, itemPattern) {
+    insertItem = function(listNode, item, itemPattern, transform) {
+      var fieldKey, transformer;
+      item = _.clone(item);
+      if (transform != null) {
+        for (fieldKey in transform) {
+          transformer = transform[fieldKey];
+          if (item[fieldKey]) {
+            item[fieldKey] = transformer(item[fieldKey]);
+          }
+        }
+      }
       listNode = $(listNode);
       return listNode.append(createElement(itemPattern, item));
     };
-    insertItems = function(listNode, items, itemPattern) {
+    insertItems = function(listNode, items, itemPattern, transform) {
       if (_.isArray(items) && items.length) {
         return _.each(items, function(item) {
-          return insertItem(listNode, item, itemPattern);
+          return insertItem(listNode, item, itemPattern, transform);
         });
       } else {
         return clearAllItems(listNode);
@@ -36,20 +46,21 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
       console.debug("look facet");
       target = $(facet.target);
       return wire(facet.options).then(function(options) {
-        var collection, itemPattern, listPattern, signal;
+        var collection, itemPattern, listPattern, signal, transform;
         collection = options.to.collection;
         listPattern = options.listPattern;
         itemPattern = options.itemPattern;
+        transform = options.transform;
         signal = collection.getSignal();
         return signal.add(function(event, entity) {
           var items, listNode;
           if (event === "add") {
             listNode = ensureListRootNode(target, listPattern, entity);
-            insertItem(listNode, entity, itemPattern);
+            insertItem(listNode, entity, itemPattern, transform);
           }
           if (event === "reset") {
             listNode = ensureListRootNode(target, listPattern);
-            return insertItems(listNode, items = entity, itemPattern);
+            return insertItems(listNode, items = entity, itemPattern, transform);
           }
         });
       });

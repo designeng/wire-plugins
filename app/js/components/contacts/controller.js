@@ -1,18 +1,26 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-define(["jquery", "underscore"], function($, _) {
+define(["jquery", "underscore", "./hashCode"], function($, _, hashCode) {
   var Controller;
   return Controller = (function() {
     function Controller() {
-      this.add = __bind(this.add, this);
+      this.displayWarning = __bind(this.displayWarning, this);
+      this.addContact = __bind(this.addContact, this);
     }
 
+    Controller.prototype.contactsRootElement = null;
+
     Controller.prototype.onReady = function() {
-      return _.defer(this.add);
+      var _this = this;
+      this.contactsPreloader = $(".contacts-preloader");
+      this.contacts.onKeyRepeat(this.displayWarning);
+      return setTimeout(function() {
+        return _this.add();
+      }, 1000);
     };
 
     Controller.prototype.add = function() {
-      console.debug("added items");
+      this.contactsPreloader.hide();
       this.contacts.addItem({
         firstName: "ONE",
         lastName: "TWO",
@@ -30,7 +38,20 @@ define(["jquery", "underscore"], function($, _) {
     };
 
     Controller.prototype.addContact = function(item) {
-      return console.debug("addContact", item);
+      this.clearAllWarnings();
+      return this.contacts.addItem(item);
+    };
+
+    Controller.prototype.clearAllWarnings = function() {
+      return _.forEach(this.contactsList.getElementsByTagName("li"), function(element) {
+        return $(element).removeClass("list-group-item-warning");
+      });
+    };
+
+    Controller.prototype.displayWarning = function(item) {
+      var key;
+      key = this.transformer(item._id);
+      return $("#" + key).addClass("list-group-item-warning");
     };
 
     return Controller;

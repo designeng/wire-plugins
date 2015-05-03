@@ -10,14 +10,22 @@ define [
             return $.parseHTML template(item)
 
         # @param {Function} itemPattern - it should be function after handlebars pre-compilation
-        insertItem = (listNode, item, itemPattern) ->
+        insertItem = (listNode, item, itemPattern, transform) ->
+            # to propect item mutation
+            item = _.clone item
+
+            if transform?
+                for fieldKey, transformer of transform
+                    if item[fieldKey]
+                        item[fieldKey] = transformer item[fieldKey]
+
             listNode = $(listNode)
             listNode.append createElement(itemPattern, item)
 
-        insertItems = (listNode, items, itemPattern) ->
+        insertItems = (listNode, items, itemPattern, transform) ->
             if _.isArray(items) and items.length
                 _.each items, (item) ->
-                    insertItem(listNode, item, itemPattern)
+                    insertItem(listNode, item, itemPattern, transform)
             else
                 clearAllItems(listNode)
 
@@ -41,16 +49,17 @@ define [
                 collection  = options.to.collection
                 listPattern = options.listPattern
                 itemPattern = options.itemPattern
+                transform   = options.transform
 
                 signal = collection.getSignal()
                 signal.add (event, entity) ->
                     if event is "add"
                         listNode = ensureListRootNode(target, listPattern, entity)
-                        insertItem(listNode, entity, itemPattern)
+                        insertItem(listNode, entity, itemPattern, transform)
                     if event is "reset"
                         listNode = ensureListRootNode(target, listPattern)
                         # entity is array
-                        insertItems(listNode, items = entity, itemPattern)
+                        insertItems(listNode, items = entity, itemPattern, transform)
 
         lookFacet = (resolver, facet, wire) ->
             resolver.resolve(look(facet, options, wire))

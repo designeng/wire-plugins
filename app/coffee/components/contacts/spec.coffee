@@ -29,6 +29,8 @@ define ->
                 collection: {$ref: 'contacts'}
             listPattern: {$ref: 'hbsResolver!components/contacts/contactsListPattern'}
             itemPattern: {$ref: 'hbsResolver!components/contacts/contactPattern'}
+            transform: 
+                _id : {$ref: 'transformer'}
 
     contacts:
         create:
@@ -74,6 +76,7 @@ define ->
         create: "components/contacts/controller"
         properties:
             contacts: {$ref: 'contacts'}
+            transformer: {$ref: 'transformer'}
             contactsList: {$ref: 'contactsList'}
             view: {$ref: 'view'}
         on:
@@ -81,3 +84,6 @@ define ->
                 "submit": {$ref: 'controller.onSubmit'}
         ready:
             onReady: {}
+
+    transformer:
+        module: "components/contacts/hashCode"

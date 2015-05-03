@@ -36,6 +36,11 @@ define(function() {
         },
         itemPattern: {
           $ref: 'hbsResolver!components/contacts/contactPattern'
+        },
+        transform: {
+          _id: {
+            $ref: 'transformer'
+          }
         }
       }
     },
@@ -107,6 +112,9 @@ define(function() {
         contacts: {
           $ref: 'contacts'
         },
+        transformer: {
+          $ref: 'transformer'
+        },
         contactsList: {
           $ref: 'contactsList'
         },
@@ -124,6 +132,9 @@ define(function() {
       ready: {
         onReady: {}
       }
+    },
+    transformer: {
+      module: "components/contacts/hashCode"
     }
   };
 });

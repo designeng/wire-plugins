@@ -50,11 +50,12 @@ define(["underscore", "signals"], function(_, Signal) {
     };
 
     Collection.prototype.addItem = function(item) {
+      var itemExists;
       item = setUniqId(item, this.uniqKey);
-      if (this.uniqKey && this.find({
+      if (this.uniqKey && (itemExists = this.find({
         _id: item._id
-      })) {
-        return;
+      }))) {
+        return this._signal.dispatch("keyRepeat", itemExists);
       }
       this._source.push(item);
       return this._signal.dispatch("add", item);
@@ -117,6 +118,14 @@ define(["underscore", "signals"], function(_, Signal) {
         this._source = [];
       }
       return this._signal.dispatch("reset", this.getSource());
+    };
+
+    Collection.prototype.onKeyRepeat = function(callback) {
+      return this._signal.add(function(event, entity) {
+        if (event === "keyRepeat") {
+          return callback(entity);
+        }
+      });
     };
 
     return Collection;
