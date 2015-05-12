@@ -37,12 +37,3 @@ define [
 
         clearAttributes: ->
             @_attributes = {}
-
-        # TODO: it's not an outstanding idea
-        domesticateSource: () ->
-            for attr, attrValue of @_attributes
-                if @.hasOwnProperty attr
-                    throw new Error "Source can not be domesticated - property '#{attr}' exists!"
-                else
-                    @[attr] = attrValue
-            return @

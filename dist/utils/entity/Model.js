@@ -47,20 +47,6 @@ define(["underscore", "eventEmitter"], function(_, EventEmitter) {
       return this._attributes = {};
     };
 
-    Model.prototype.domesticateSource = function() {
-      var attr, attrValue, _ref;
-      _ref = this._attributes;
-      for (attr in _ref) {
-        attrValue = _ref[attr];
-        if (this.hasOwnProperty(attr)) {
-          throw new Error("Source can not be domesticated - property '" + attr + "' exists!");
-        } else {
-          this[attr] = attrValue;
-        }
-      }
-      return this;
-    };
-
     return Model;
 
   })(EventEmitter);
