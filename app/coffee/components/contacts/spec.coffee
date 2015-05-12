@@ -87,3 +87,4 @@ define ->
 
     transformer:
         module: "components/contacts/hashCode"
+        

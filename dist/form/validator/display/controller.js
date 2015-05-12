@@ -76,29 +76,13 @@ define(["underscore", "jquery", "plugins/utils/normalize"], function(_, $, norma
     };
 
     Controller.prototype.switchState = function(input, state) {
-      var basePrefix, classesToRemove, inputType, stateErrorClass, stateSemaphoreElement;
       if (input.size() === 0) {
         return false;
       }
-      if (input.attr("data-input-exclusion") === "exclusion") {
-        stateErrorClass = input.attr("data-state-error-class");
-        stateSemaphoreElement = input.prev();
-        if (state === "success" || state === "error") {
-          stateSemaphoreElement.addClass(stateErrorClass);
-        } else {
-          stateSemaphoreElement.removeClass(stateErrorClass);
-        }
+      if (state === "error") {
+        $(input).closest(".form-group").addClass("has-error");
       } else {
-        inputType = input.attr("type");
-        basePrefix = this.basePrefixes[inputType].prefix;
-        classesToRemove = _.reduce(["success", "error"], function(result, state) {
-          return result += basePrefix + state + " ";
-        }, "");
-        stateSemaphoreElement = input.closest(".form" + this.basePrefixes[inputType].suffix);
-        stateSemaphoreElement.removeClass(classesToRemove);
-        if (state === "success" || state === "error") {
-          stateSemaphoreElement.addClass(basePrefix + state);
-        }
+        $(input).closest(".form-group").removeClass("has-error");
       }
       if (state === "success") {
         return this.hideError();

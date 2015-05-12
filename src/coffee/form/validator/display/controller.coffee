@@ -72,31 +72,36 @@ define [
             # TODO: add "filter" option to "common" field definition to prevent all operations with not used in strategy inputs?
             return false if input.size() == 0
 
-            # for exclusions
-            if input.attr("data-input-exclusion") == "exclusion"
-                stateErrorClass         = input.attr("data-state-error-class")
-                stateSemaphoreElement   = input.prev()
-                if state in ["success", "error"]
-                    stateSemaphoreElement.addClass stateErrorClass
-                else
-                    # state is "initial"
-                    stateSemaphoreElement.removeClass stateErrorClass
-                    
-            # for input types: [text, select]
+            if state is "error"
+                $(input).closest(".form-group").addClass "has-error"
             else
-                inputType = input.attr "type"
-                basePrefix = @basePrefixes[inputType].prefix
+                $(input).closest(".form-group").removeClass "has-error"
 
-                classesToRemove = _.reduce ["success", "error"], (result, state) ->
-                    return result += basePrefix + state + " "
-                , ""
+            # # for exclusions
+            # if input.attr("data-input-exclusion") == "exclusion"
+            #     stateErrorClass         = input.attr("data-state-error-class")
+            #     stateSemaphoreElement   = input.prev()
+            #     if state in ["success", "error"]
+            #         stateSemaphoreElement.addClass stateErrorClass
+            #     else
+            #         # state is "initial"
+            #         stateSemaphoreElement.removeClass stateErrorClass
+                    
+            # # for input types: [text, select]
+            # else
+            #     inputType = input.attr "type"
+            #     basePrefix = @basePrefixes[inputType].prefix
 
-                stateSemaphoreElement = input.closest(".form" + @basePrefixes[inputType].suffix)
-                stateSemaphoreElement.removeClass(classesToRemove)
+            #     classesToRemove = _.reduce ["success", "error"], (result, state) ->
+            #         return result += basePrefix + state + " "
+            #     , ""
 
-                if state in ["success", "error"]
-                    stateSemaphoreElement.addClass(basePrefix + state)
-                # if state is "initial" do nothing
+            #     stateSemaphoreElement = input.closest(".form" + @basePrefixes[inputType].suffix)
+            #     stateSemaphoreElement.removeClass(classesToRemove)
+
+            #     if state in ["success", "error"]
+            #         stateSemaphoreElement.addClass(basePrefix + state)
+            #     # if state is "initial" do nothing
 
             if state == "success"
                 @hideError()
