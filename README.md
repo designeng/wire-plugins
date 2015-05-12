@@ -13,3 +13,4 @@ Start server by running default task `grunt` & navigate your browser to `http://
 ##todo
 + Documentation
 + Extract usage example to wire-plugins-example
++ Tests for validation plugin and routing system.
