@@ -46,3 +46,4 @@ define [
         displayWarning: (item) =>
             key = @transformer item._id
             $("#" + key).addClass "list-group-item-warning"
+            $("#" + key).append("<div>exists</div>")

@@ -51,7 +51,8 @@ define(["jquery", "underscore"], function($, _) {
     Controller.prototype.displayWarning = function(item) {
       var key;
       key = this.transformer(item._id);
-      return $("#" + key).addClass("list-group-item-warning");
+      $("#" + key).addClass("list-group-item-warning");
+      return $("#" + key).append("<div>exists</div>");
     };
 
     return Controller;
