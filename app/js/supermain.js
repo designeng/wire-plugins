@@ -34,12 +34,14 @@ require.config({
     "plugins/template/look": "../../dist/template/look",
     "plugins/template/bind": "../../dist/template/bind",
     "plugins/template/hbsResolver": "../../dist/template/hbsResolver",
+    "plugins/behavior/dialog": "../../dist/behavior/dialog",
     "plugins/utils/normalize": "../../dist/utils/normalize",
     "plugins/utils/navigation/navigateToError": "../../dist/utils/navigation/navigateToError",
     "plugins/utils/navigation/navigate": "../../dist/utils/navigation/navigate",
     "plugins/utils/routing/appRouterController": "../../dist/utils/routing/appRouterController",
     "plugins/utils/entity/Collection": "../../dist/utils/entity/Collection",
-    "plugins/utils/form/displayListItemPattern": "../../dist/utils/form/displayListItemPattern"
+    "plugins/utils/form/displayListItemPattern": "../../dist/utils/form/displayListItemPattern",
+    "plugins/utils/dialog/modalDialogPattern": "../../dist/utils/dialog/modalDialogPattern"
   },
   packages: [
     {

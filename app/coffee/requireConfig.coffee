@@ -46,6 +46,7 @@ require.config
         "plugins/template/look"                 : "../../dist/template/look"
         "plugins/template/bind"                 : "../../dist/template/bind"
         "plugins/template/hbsResolver"          : "../../dist/template/hbsResolver"
+        "plugins/behavior/dialog"               : "../../dist/behavior/dialog"
 
         # plugins utils
         "plugins/utils/normalize"                       : "../../dist/utils/normalize"
@@ -54,6 +55,7 @@ require.config
         "plugins/utils/routing/appRouterController"     : "../../dist/utils/routing/appRouterController"
         "plugins/utils/entity/Collection"               : "../../dist/utils/entity/Collection"
         "plugins/utils/form/displayListItemPattern"     : "../../dist/utils/form/displayListItemPattern"
+        "plugins/utils/dialog/modalDialogPattern"       : "../../dist/utils/dialog/modalDialogPattern"
 
     packages: [
         # lib packages

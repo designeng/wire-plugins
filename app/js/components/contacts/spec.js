@@ -1,6 +1,6 @@
 define(function() {
   return {
-    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look', 'plugins/form/validate', 'plugins/template/hbsResolver'],
+    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look', 'plugins/form/validate', 'plugins/template/hbsResolver', "plugins/behavior/dialog"],
     view: {
       render: {
         template: {
@@ -103,6 +103,19 @@ define(function() {
         "emailValidation": {
           rule: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g,
           message: "Input email"
+        }
+      }
+    },
+    dialog: {
+      createDialog: {
+        title: "Title",
+        body: "Are you going to override it?",
+        closeButtonLabel: "Close it",
+        showOn: {
+          $ref: "controller.onListItemClick"
+        },
+        appendTo: {
+          $ref: "view"
         }
       }
     },

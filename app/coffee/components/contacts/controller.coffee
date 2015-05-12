@@ -49,3 +49,4 @@ define [
         displayWarning: (item) =>
             key = @transformer item._id
             $("#" + key).addClass "list-group-item-warning"
+            
