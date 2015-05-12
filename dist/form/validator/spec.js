@@ -5,7 +5,7 @@ define({
       spec: "plugins/form/validator/display/spec"
     }
   },
-  defaultPointMessage: "Пожалуйста, заполните это поле",
+  defaultPointMessage: "Please fill this field",
   validator: {
     create: {
       module: "plugins/form/validator/validator",

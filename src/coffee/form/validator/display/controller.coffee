@@ -3,33 +3,10 @@ define [
     "jquery"
     "plugins/utils/normalize"
 ], (_, $, normalize) ->
+    
     class Controller
 
         currentErrorClass: undefined
-
-        basePrefixes:
-            "text"   :
-                prefix  : "formInput__state_show_"
-                suffix  : "Input"
-            "date"   :
-                prefix  : "formInput__state_show_"
-                suffix  : "Input"
-            "select" :
-                prefix  : "formSelect__state_show_"
-                suffix  : "Select"
-
-            "number":
-                prefix  : "formInput__state_show_"
-                suffix  : "Input"
-            "tel"   :
-                prefix  : "formInput__state_show_"
-                suffix  : "Input"
-            "email"   :
-                prefix  : "formInput__state_show_"
-                suffix  : "Input"
-            "hidden":
-                prefix  : "formInput__state_show_"
-                suffix  : "Input"
 
         onReady: ->
             [@displayView, @displaySlot] = normalize @displayView, @displaySlot
@@ -76,32 +53,6 @@ define [
                 $(input).closest(".form-group").addClass "has-error"
             else
                 $(input).closest(".form-group").removeClass "has-error"
-
-            # # for exclusions
-            # if input.attr("data-input-exclusion") == "exclusion"
-            #     stateErrorClass         = input.attr("data-state-error-class")
-            #     stateSemaphoreElement   = input.prev()
-            #     if state in ["success", "error"]
-            #         stateSemaphoreElement.addClass stateErrorClass
-            #     else
-            #         # state is "initial"
-            #         stateSemaphoreElement.removeClass stateErrorClass
-                    
-            # # for input types: [text, select]
-            # else
-            #     inputType = input.attr "type"
-            #     basePrefix = @basePrefixes[inputType].prefix
-
-            #     classesToRemove = _.reduce ["success", "error"], (result, state) ->
-            #         return result += basePrefix + state + " "
-            #     , ""
-
-            #     stateSemaphoreElement = input.closest(".form" + @basePrefixes[inputType].suffix)
-            #     stateSemaphoreElement.removeClass(classesToRemove)
-
-            #     if state in ["success", "error"]
-            #         stateSemaphoreElement.addClass(basePrefix + state)
-            #     # if state is "initial" do nothing
 
             if state == "success"
                 @hideError()

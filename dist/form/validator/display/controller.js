@@ -5,37 +5,6 @@ define(["underscore", "jquery", "plugins/utils/normalize"], function(_, $, norma
 
     Controller.prototype.currentErrorClass = void 0;
 
-    Controller.prototype.basePrefixes = {
-      "text": {
-        prefix: "formInput__state_show_",
-        suffix: "Input"
-      },
-      "date": {
-        prefix: "formInput__state_show_",
-        suffix: "Input"
-      },
-      "select": {
-        prefix: "formSelect__state_show_",
-        suffix: "Select"
-      },
-      "number": {
-        prefix: "formInput__state_show_",
-        suffix: "Input"
-      },
-      "tel": {
-        prefix: "formInput__state_show_",
-        suffix: "Input"
-      },
-      "email": {
-        prefix: "formInput__state_show_",
-        suffix: "Input"
-      },
-      "hidden": {
-        prefix: "formInput__state_show_",
-        suffix: "Input"
-      }
-    };
-
     Controller.prototype.onReady = function() {
       var _ref;
       _ref = normalize(this.displayView, this.displaySlot), this.displayView = _ref[0], this.displaySlot = _ref[1];
