@@ -14,15 +14,20 @@ define(["meld", "plugins/utils/dialog/modalDialogPattern"], function(meld, modal
           return $modalDialogEl.show();
         }));
         return wire(componentDef.options).then(function(options) {
-          var $closeBtn, html;
+          var $closeBtn, $confirBtn, html;
           html = modalDialogPattern({
             title: options.title,
             body: options.body,
-            closeButtonLabel: options.closeButtonLabel
+            confirmButtonLabel: options.confirmButtonLabel
           });
           $modalDialogEl = $(options.appendTo).append(html).find(".modal");
           $closeBtn = $modalDialogEl.find("button.close");
+          $confirBtn = $modalDialogEl.find("button.confirmation");
           $closeBtn.on("click", function() {
+            return $modalDialogEl.hide();
+          });
+          $confirBtn.on("click", function() {
+            options.onConfirmation.call();
             return $modalDialogEl.hide();
           });
           return resolver.resolve();

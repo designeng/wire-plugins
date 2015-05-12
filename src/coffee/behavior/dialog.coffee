@@ -26,12 +26,18 @@ define [
                         html = modalDialogPattern({
                             title               : options.title
                             body                : options.body
-                            closeButtonLabel    : options.closeButtonLabel
+                            confirmButtonLabel  : options.confirmButtonLabel
                         })
 
                         $modalDialogEl = $(options.appendTo).append(html).find(".modal")
                         $closeBtn = $modalDialogEl.find("button.close")
+                        $confirBtn = $modalDialogEl.find("button.confirmation")
+
                         $closeBtn.on "click", ->
+                            $modalDialogEl.hide()
+
+                        $confirBtn.on "click", ->
+                            options.onConfirmation.call()
                             $modalDialogEl.hide()
 
                         resolver.resolve()

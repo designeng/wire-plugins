@@ -41,6 +41,10 @@ define(["jquery", "underscore"], function($, _) {
       return console.debug("onListItemClick", $(event.target).closest("li"));
     };
 
+    Controller.prototype.onDialogConfirmation = function() {
+      return console.debug("onDialogConfirmation");
+    };
+
     Controller.prototype.addContact = function(item) {
       this.clearAllWarnings();
       return this.contacts.addItem(item);

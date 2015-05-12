@@ -38,6 +38,9 @@ define [
         onListItemClick: (event) ->
             console.debug "onListItemClick", $(event.target).closest("li")
 
+        onDialogConfirmation: ->
+            console.debug "onDialogConfirmation"
+
         addContact: (item) =>
             @clearAllWarnings()
             @contacts.addItem item

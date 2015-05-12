@@ -110,7 +110,10 @@ define(function() {
       createDialog: {
         title: "Title",
         body: "Are you going to override it?",
-        closeButtonLabel: "Close it",
+        confirmButtonLabel: "Yes, overrive it",
+        onConfirmation: {
+          $ref: "controller.onDialogConfirmation"
+        },
         showOn: {
           $ref: "controller.onListItemClick"
         },
