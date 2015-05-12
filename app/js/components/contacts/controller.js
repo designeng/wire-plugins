@@ -11,30 +11,34 @@ define(["jquery", "underscore"], function($, _) {
     Controller.prototype.contactsRootElement = null;
 
     Controller.prototype.onReady = function() {
-      var _this = this;
       this.contactsPreloader = $(".contacts-preloader");
       this.contacts.onKeyRepeat(this.displayWarning);
-      return setTimeout(function() {
-        return _this.add();
-      }, 1000);
+      return this.loadContacts();
     };
 
-    Controller.prototype.add = function() {
-      this.contactsPreloader.hide();
-      this.contacts.addItem({
-        firstName: "ONE",
-        lastName: "TWO",
-        email: "test@r.ru"
-      });
-      return this.contacts.addItem({
-        firstName: "TWO",
-        lastName: "THREE",
-        email: "test2@r.ru"
-      });
+    Controller.prototype.loadContacts = function() {
+      var _this = this;
+      return setTimeout(function() {
+        _this.contactsPreloader.hide();
+        _this.contacts.addItem({
+          firstName: "JOHN",
+          lastName: "STARKY",
+          email: "john@el.com"
+        });
+        return _this.contacts.addItem({
+          firstName: "RICHARD",
+          lastName: "TEDDY",
+          email: "rich@el.com"
+        });
+      }, 1000);
     };
 
     Controller.prototype.onSubmit = function() {
       return false;
+    };
+
+    Controller.prototype.onListItemClick = function(event) {
+      return console.debug("onListItemClick", $(event.target).closest("li"));
     };
 
     Controller.prototype.addContact = function(item) {
@@ -51,8 +55,7 @@ define(["jquery", "underscore"], function($, _) {
     Controller.prototype.displayWarning = function(item) {
       var key;
       key = this.transformer(item._id);
-      $("#" + key).addClass("list-group-item-warning");
-      return $("#" + key).append("<div>exists</div>");
+      return $("#" + key).addClass("list-group-item-warning");
     };
 
     return Controller;

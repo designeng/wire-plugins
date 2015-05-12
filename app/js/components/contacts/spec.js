@@ -127,6 +127,11 @@ define(function() {
           "submit": {
             $ref: 'controller.onSubmit'
           }
+        },
+        contactsList: {
+          "click": {
+            $ref: 'controller.onListItemClick'
+          }
         }
       },
       ready: {

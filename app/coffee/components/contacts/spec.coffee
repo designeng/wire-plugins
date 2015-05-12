@@ -82,6 +82,8 @@ define ->
         on:
             form:
                 "submit": {$ref: 'controller.onSubmit'}
+            contactsList:
+                "click": {$ref: 'controller.onListItemClick'}
         ready:
             onReady: {}
 

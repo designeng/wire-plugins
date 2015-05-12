@@ -13,27 +13,30 @@ define [
             @contacts.onKeyRepeat @displayWarning
 
             # ajax data loading imitation
+            @loadContacts()
+
+        loadContacts: ->
             setTimeout () =>
-                @add()
+                @contactsPreloader.hide()
+
+                @contacts.addItem {
+                    firstName: "JOHN"
+                    lastName: "STARKY"
+                    email: "john@el.com"
+                }
+
+                @contacts.addItem {
+                    firstName: "RICHARD"
+                    lastName: "TEDDY"
+                    email: "rich@el.com"
+                }
             , 1000
-
-        add: ->
-            @contactsPreloader.hide()
-
-            @contacts.addItem {
-                firstName: "ONE"
-                lastName: "TWO"
-                email: "test@r.ru"
-            }
-
-            @contacts.addItem {
-                firstName: "TWO"
-                lastName: "THREE"
-                email: "test2@r.ru"
-            }
 
         onSubmit: ->
             return false
+
+        onListItemClick: (event) ->
+            console.debug "onListItemClick", $(event.target).closest("li")
 
         addContact: (item) =>
             @clearAllWarnings()
@@ -46,4 +49,3 @@ define [
         displayWarning: (item) =>
             key = @transformer item._id
             $("#" + key).addClass "list-group-item-warning"
-            $("#" + key).append("<div>exists</div>")
