@@ -11,4 +11,5 @@ As usial, run `npm install` (you should have `node` preinstalled).
 Start server by running default task `grunt` & navigate your browser to `http://localhost:7788/app/#/contacts`
 
 ##todo
++ Documentation
 + Extract usage example to wire-plugins-example
