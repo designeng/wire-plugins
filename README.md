@@ -1,6 +1,8 @@
 ##wire-plugins
 
-plugins for wire.js based application
+It's not a "framework" in common sense: no "core", just plugins for `DSL` semantic extention.
+
+This assumes that you use `wire.js` in your application as composition layer.
 
 ##installation
 as usial, `npm install` (you should have `node` preinstalled)
