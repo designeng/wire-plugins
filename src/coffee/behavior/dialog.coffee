@@ -27,18 +27,28 @@ define [
                             title               : options.title
                             body                : options.body
                             confirmButtonLabel  : options.confirmButtonLabel
+                            refuseButtonLabel   : options.refuseButtonLabel
                         })
 
                         $modalDialogEl = $(options.appendTo).append(html).find(".modal")
                         $closeBtn = $modalDialogEl.find("button.close")
                         $confirBtn = $modalDialogEl.find("button.confirmation")
+                        $refuseBtn = $modalDialogEl.find("button.refuse")
+
+                        closeDialog = ->
+                            options.onClose.call() if options.onClose?
+                            $modalDialogEl.hide()
 
                         $closeBtn.on "click", ->
-                            $modalDialogEl.hide()
+                            closeDialog()
 
                         $confirBtn.on "click", ->
-                            options.onConfirmation.call()
-                            $modalDialogEl.hide()
+                            options.onConfirmation.call() if options.onConfirmation?
+                            closeDialog()
+
+                        $refuseBtn.on "click", ->
+                            options.onRefusing.call() if options.onRefusing?
+                            closeDialog()
 
                         resolver.resolve()
 

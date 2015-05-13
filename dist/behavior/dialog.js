@@ -14,21 +14,37 @@ define(["meld", "plugins/utils/dialog/modalDialogPattern"], function(meld, modal
           return $modalDialogEl.show();
         }));
         return wire(componentDef.options).then(function(options) {
-          var $closeBtn, $confirBtn, html;
+          var $closeBtn, $confirBtn, $refuseBtn, closeDialog, html;
           html = modalDialogPattern({
             title: options.title,
             body: options.body,
-            confirmButtonLabel: options.confirmButtonLabel
+            confirmButtonLabel: options.confirmButtonLabel,
+            refuseButtonLabel: options.refuseButtonLabel
           });
           $modalDialogEl = $(options.appendTo).append(html).find(".modal");
           $closeBtn = $modalDialogEl.find("button.close");
           $confirBtn = $modalDialogEl.find("button.confirmation");
-          $closeBtn.on("click", function() {
+          $refuseBtn = $modalDialogEl.find("button.refuse");
+          closeDialog = function() {
+            if (options.onClose != null) {
+              options.onClose.call();
+            }
             return $modalDialogEl.hide();
+          };
+          $closeBtn.on("click", function() {
+            return closeDialog();
           });
           $confirBtn.on("click", function() {
-            options.onConfirmation.call();
-            return $modalDialogEl.hide();
+            if (options.onConfirmation != null) {
+              options.onConfirmation.call();
+            }
+            return closeDialog();
+          });
+          $refuseBtn.on("click", function() {
+            if (options.onRefusing != null) {
+              options.onRefusing.call();
+            }
+            return closeDialog();
           });
           return resolver.resolve();
         });

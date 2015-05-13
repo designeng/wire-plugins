@@ -4,8 +4,10 @@ define(["jquery", "underscore"], function($, _) {
   var Controller;
   return Controller = (function() {
     function Controller() {
+      this.clearWarning = __bind(this.clearWarning, this);
       this.displayWarning = __bind(this.displayWarning, this);
       this.addContact = __bind(this.addContact, this);
+      this.onDialogClose = __bind(this.onDialogClose, this);
       this.onDialogConfirmation = __bind(this.onDialogConfirmation, this);
     }
 
@@ -38,15 +40,16 @@ define(["jquery", "underscore"], function($, _) {
       return false;
     };
 
-    Controller.prototype.onListItemClick = function(event) {
-      return console.debug("onListItemClick", $(event.target).closest("li"));
-    };
+    Controller.prototype.onListItemClick = function(event) {};
 
     Controller.prototype.onDialogConfirmation = function() {
-      this.contacts.update({
+      return this.contacts.update({
         _id: this.currentItem._id
       }, this.currentItem);
-      return console.debug(">>>>>", this.contacts.getSource());
+    };
+
+    Controller.prototype.onDialogClose = function() {
+      return this.clearWarning();
     };
 
     Controller.prototype.addContact = function(item) {
@@ -66,6 +69,12 @@ define(["jquery", "underscore"], function($, _) {
       key = this.transformer(item._id);
       $("#" + key).addClass("list-group-item-warning");
       return true;
+    };
+
+    Controller.prototype.clearWarning = function() {
+      var key;
+      key = this.transformer(this.currentItem._id);
+      return $("#" + key).removeClass("list-group-item-warning");
     };
 
     return Controller;

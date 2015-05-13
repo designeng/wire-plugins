@@ -15,7 +15,7 @@ define [
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default confirmation">{{ confirmButtonLabel }}</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary refuse">{{ refuseButtonLabel }}</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
