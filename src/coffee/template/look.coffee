@@ -20,7 +20,8 @@ define [
                         item[fieldKey] = transformer item[fieldKey]
 
             listNode = $(listNode)
-            listNode.append createElement(itemPattern, item)
+            element = createElement(itemPattern, item)
+            listNode.append element
 
         insertItems = (listNode, items, itemPattern, transform) ->
             if _.isArray(items) and items.length
@@ -38,7 +39,8 @@ define [
                         item[fieldKey] = transformer item[fieldKey]
 
             listNode = $(listNode)
-            itemNode = listNode.find("#" + item["_id"]).replaceWith createElement(itemPattern, item)
+            element = createElement(itemPattern, item)
+            itemNode = listNode.find("#" + item["_id"]).replaceWith element
 
         clearAllItems = (listNode) ->
             listNode = $(listNode)
@@ -55,6 +57,7 @@ define [
 
         look = (facet, options, wire) ->
             target = $(facet.target)
+
             wire(facet.options).then (options) ->
                 collection  = options.to.collection
                 listPattern = options.listPattern

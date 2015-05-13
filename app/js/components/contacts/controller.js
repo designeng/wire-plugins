@@ -14,8 +14,16 @@ define(["jquery", "underscore"], function($, _) {
     Controller.prototype.contactsRootElement = null;
 
     Controller.prototype.onReady = function() {
+      var $form,
+        _this = this;
       this.contactsPreloader = $(".contacts-preloader");
       this.contacts.onKeyRepeat(this.displayWarning);
+      this.itemFields = _.keys(this.formStrategy);
+      $form = $(this.form);
+      this.contactFormInputs = [];
+      _.each(this.itemFields, function(name) {
+        return _this.contactFormInputs[name] = $form.find("[name='" + name + "']");
+      });
       return this.loadContacts();
     };
 
@@ -40,7 +48,14 @@ define(["jquery", "underscore"], function($, _) {
       return false;
     };
 
-    Controller.prototype.onListItemClick = function(event) {};
+    Controller.prototype.onListItemClick = function(event) {
+      var itemHolder,
+        _this = this;
+      itemHolder = $(event.target).closest("li");
+      return _.each(this.itemFields, function(fieldName) {
+        return _this.contactFormInputs[fieldName].val(itemHolder.find("[data-field=" + fieldName + "]").text());
+      });
+    };
 
     Controller.prototype.onDialogConfirmation = function() {
       return this.contacts.update({

@@ -12,6 +12,14 @@ define [
 
             @contacts.onKeyRepeat @displayWarning
 
+            @itemFields = _.keys @formStrategy
+
+            $form = $(@form)
+            @contactFormInputs = []
+
+            _.each @itemFields, (name) =>
+                @contactFormInputs[name] = $form.find("[name='" + name + "']")
+
             # ajax data loading imitation
             @loadContacts()
 
@@ -36,7 +44,10 @@ define [
             return false
 
         onListItemClick: (event) ->
-            # console.debug "onListItemClick", $(event.target).closest("li")
+            itemHolder = $(event.target).closest("li")
+
+            _.each @itemFields, (fieldName) =>
+                @contactFormInputs[fieldName].val itemHolder.find("[data-field=#{fieldName}]").text()
 
         onDialogConfirmation: =>
             @contacts.update {_id: @currentItem._id}, @currentItem

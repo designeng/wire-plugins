@@ -88,9 +88,11 @@ define ->
         create: "components/contacts/controller"
         properties:
             contacts: {$ref: 'contacts'}
+            formStrategy: {$ref: 'formStrategy'}
             transformer: {$ref: 'transformer'}
             contactsList: {$ref: 'contactsList'}
             view: {$ref: 'view'}
+            form: {$ref: 'form'}
         on:
             form:
                 "submit": {$ref: 'controller.onSubmit'}

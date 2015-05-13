@@ -132,6 +132,9 @@ define(function() {
         contacts: {
           $ref: 'contacts'
         },
+        formStrategy: {
+          $ref: 'formStrategy'
+        },
         transformer: {
           $ref: 'transformer'
         },
@@ -140,6 +143,9 @@ define(function() {
         },
         view: {
           $ref: 'view'
+        },
+        form: {
+          $ref: 'form'
         }
       },
       on: {
