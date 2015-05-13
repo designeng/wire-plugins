@@ -6,6 +6,7 @@ define(["jquery", "underscore"], function($, _) {
     function Controller() {
       this.displayWarning = __bind(this.displayWarning, this);
       this.addContact = __bind(this.addContact, this);
+      this.onDialogConfirmation = __bind(this.onDialogConfirmation, this);
     }
 
     Controller.prototype.contactsRootElement = null;
@@ -42,11 +43,15 @@ define(["jquery", "underscore"], function($, _) {
     };
 
     Controller.prototype.onDialogConfirmation = function() {
-      return console.debug("onDialogConfirmation");
+      this.contacts.update({
+        _id: this.currentItem._id
+      }, this.currentItem);
+      return console.debug(">>>>>", this.contacts.getSource());
     };
 
     Controller.prototype.addContact = function(item) {
       this.clearAllWarnings();
+      this.currentItem = item;
       return this.contacts.addItem(item);
     };
 
@@ -59,7 +64,8 @@ define(["jquery", "underscore"], function($, _) {
     Controller.prototype.displayWarning = function(item) {
       var key;
       key = this.transformer(item._id);
-      return $("#" + key).addClass("list-group-item-warning");
+      $("#" + key).addClass("list-group-item-warning");
+      return true;
     };
 
     return Controller;

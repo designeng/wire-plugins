@@ -38,11 +38,14 @@ define [
         onListItemClick: (event) ->
             console.debug "onListItemClick", $(event.target).closest("li")
 
-        onDialogConfirmation: ->
-            console.debug "onDialogConfirmation"
+        onDialogConfirmation: =>
+            @contacts.update {_id: @currentItem._id}, @currentItem
+
+            console.debug ">>>>>", @contacts.getSource()
 
         addContact: (item) =>
             @clearAllWarnings()
+            @currentItem = item
             @contacts.addItem item
 
         clearAllWarnings: ->
@@ -52,4 +55,5 @@ define [
         displayWarning: (item) =>
             key = @transformer item._id
             $("#" + key).addClass "list-group-item-warning"
+            return true
             

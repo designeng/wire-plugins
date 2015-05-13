@@ -73,13 +73,13 @@ define ->
                 rule: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g   #`'"'
                 message: "Input email"
 
-    dialog: 
+    dialog:
         createDialog:
-            title: "Title"
+            title: "Contact with this email exists"
             body: "Are you going to override it?"
-            confirmButtonLabel: "Yes, overrive it"
+            confirmButtonLabel: "Yes, override it"
             onConfirmation: {$ref: "controller.onDialogConfirmation"}
-            showOn: {$ref: "controller.onListItemClick"}
+            showOn: {$ref: "controller.displayWarning"}
             appendTo: {$ref: "view"}
 
     controller:
