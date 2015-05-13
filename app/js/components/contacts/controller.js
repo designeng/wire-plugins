@@ -57,6 +57,10 @@ define(["jquery", "underscore"], function($, _) {
       });
     };
 
+    Controller.prototype.onDialogShow = function(item) {
+      return $("#modal-dialog-title").text("Contact with email " + item.email + " exists");
+    };
+
     Controller.prototype.onDialogConfirmation = function() {
       return this.contacts.update({
         _id: this.currentItem._id
@@ -83,7 +87,7 @@ define(["jquery", "underscore"], function($, _) {
       var key;
       key = this.transformer(item._id);
       $("#" + key).addClass("list-group-item-warning");
-      return true;
+      return item;
     };
 
     Controller.prototype.clearWarning = function() {

@@ -6,12 +6,14 @@ define(["meld", "plugins/utils/dialog/modalDialogPattern"], function(meld, modal
       return str.split(".").slice(0, 2);
     };
     createDialogFactory = function(resolver, componentDef, wire) {
-      var $modalDialogEl, invoker, providerClass, _ref;
+      var $modalDialogEl, invoker, onDialogShow, providerClass, _ref;
       $modalDialogEl = null;
+      onDialogShow = function() {};
       _ref = getClassAndMethod(componentDef.options.showOn.$ref), providerClass = _ref[0], invoker = _ref[1];
       return wire.resolveRef(providerClass).then(function(provider) {
-        removers.push(meld.after(provider, invoker, function() {
-          return $modalDialogEl.show();
+        removers.push(meld.after(provider, invoker, function(data) {
+          $modalDialogEl.show();
+          return onDialogShow(data);
         }));
         return wire(componentDef.options).then(function(options) {
           var $closeBtn, $confirBtn, $refuseBtn, closeDialog, html;
@@ -25,9 +27,10 @@ define(["meld", "plugins/utils/dialog/modalDialogPattern"], function(meld, modal
           $closeBtn = $modalDialogEl.find("button.close");
           $confirBtn = $modalDialogEl.find("button.confirmation");
           $refuseBtn = $modalDialogEl.find("button.refuse");
+          onDialogShow = options.onDialogShow;
           closeDialog = function() {
-            if (options.onClose != null) {
-              options.onClose.call();
+            if (options.onDialogClose != null) {
+              options.onDialogClose.call();
             }
             return $modalDialogEl.hide();
           };

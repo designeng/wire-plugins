@@ -75,12 +75,12 @@ define ->
 
     dialog:
         createDialog:
-            title: "Contact with this email exists"
             body: "Are you going to override it?"
             confirmButtonLabel: "Yes, override it"
             refuseButtonLabel: "No, by no means"
+            onDialogShow: {$ref: "controller.onDialogShow"}
             onConfirmation: {$ref: "controller.onDialogConfirmation"}
-            onClose: {$ref: "controller.onDialogClose"}
+            onDialogClose: {$ref: "controller.onDialogClose"}
             showOn: {$ref: "controller.displayWarning"}
             appendTo: {$ref: "view"}
 

@@ -13,13 +13,15 @@ define [
 
         createDialogFactory = (resolver, componentDef, wire) ->
             $modalDialogEl = null
+            onDialogShow = () ->
 
             [providerClass, invoker] = getClassAndMethod(componentDef.options.showOn.$ref)
 
             wire.resolveRef(providerClass).then (provider) ->
 
-                removers.push meld.after provider, invoker, () ->
+                removers.push meld.after provider, invoker, (data) ->
                     $modalDialogEl.show()
+                    onDialogShow(data)
 
                 wire(componentDef.options)
                     .then (options) ->
@@ -35,8 +37,10 @@ define [
                         $confirBtn = $modalDialogEl.find("button.confirmation")
                         $refuseBtn = $modalDialogEl.find("button.refuse")
 
+                        onDialogShow = options.onDialogShow
+
                         closeDialog = ->
-                            options.onClose.call() if options.onClose?
+                            options.onDialogClose.call() if options.onDialogClose?
                             $modalDialogEl.hide()
 
                         $closeBtn.on "click", ->

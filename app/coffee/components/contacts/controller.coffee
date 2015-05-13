@@ -49,6 +49,9 @@ define [
             _.each @itemFields, (fieldName) =>
                 @contactFormInputs[fieldName].val itemHolder.find("[data-field=#{fieldName}]").text()
 
+        onDialogShow: (item) ->
+            $("#modal-dialog-title").text("Contact with email #{item.email} exists")
+
         onDialogConfirmation: =>
             @contacts.update {_id: @currentItem._id}, @currentItem
 
@@ -67,7 +70,7 @@ define [
         displayWarning: (item) =>
             key = @transformer item._id
             $("#" + key).addClass "list-group-item-warning"
-            return true
+            return item
 
         clearWarning: =>
             key = @transformer @currentItem._id

@@ -108,14 +108,16 @@ define(function() {
     },
     dialog: {
       createDialog: {
-        title: "Contact with this email exists",
         body: "Are you going to override it?",
         confirmButtonLabel: "Yes, override it",
         refuseButtonLabel: "No, by no means",
+        onDialogShow: {
+          $ref: "controller.onDialogShow"
+        },
         onConfirmation: {
           $ref: "controller.onDialogConfirmation"
         },
-        onClose: {
+        onDialogClose: {
           $ref: "controller.onDialogClose"
         },
         showOn: {
