@@ -5,7 +5,7 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
       return $.parseHTML(template(item));
     };
     insertItem = function(listNode, item, itemPattern, transform) {
-      var element, fieldKey, transformer;
+      var fieldKey, transformer;
       item = _.clone(item);
       if (transform != null) {
         for (fieldKey in transform) {
@@ -16,8 +16,7 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
         }
       }
       listNode = $(listNode);
-      element = createElement(itemPattern, item);
-      return listNode.append(element);
+      return listNode.append(createElement(itemPattern, item));
     };
     insertItems = function(listNode, items, itemPattern, transform) {
       if (_.isArray(items) && items.length) {
@@ -29,7 +28,7 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
       }
     };
     updateItem = function(listNode, item, itemPattern, transform) {
-      var element, fieldKey, itemNode, transformer;
+      var fieldKey, itemNode, transformer;
       item = _.clone(item);
       if (transform != null) {
         for (fieldKey in transform) {
@@ -40,8 +39,7 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
         }
       }
       listNode = $(listNode);
-      element = createElement(itemPattern, item);
-      return itemNode = listNode.find("#" + item["_id"]).replaceWith(element);
+      return itemNode = listNode.find("#" + item["_id"]).replaceWith(createElement(itemPattern, item));
     };
     clearAllItems = function(listNode) {
       listNode = $(listNode);

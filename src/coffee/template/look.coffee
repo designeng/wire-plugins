@@ -20,8 +20,7 @@ define [
                         item[fieldKey] = transformer item[fieldKey]
 
             listNode = $(listNode)
-            element = createElement(itemPattern, item)
-            listNode.append element
+            listNode.append createElement(itemPattern, item)
 
         insertItems = (listNode, items, itemPattern, transform) ->
             if _.isArray(items) and items.length
@@ -39,8 +38,7 @@ define [
                         item[fieldKey] = transformer item[fieldKey]
 
             listNode = $(listNode)
-            element = createElement(itemPattern, item)
-            itemNode = listNode.find("#" + item["_id"]).replaceWith element
+            itemNode = listNode.find("#" + item["_id"]).replaceWith createElement(itemPattern, item)
 
         clearAllItems = (listNode) ->
             listNode = $(listNode)
