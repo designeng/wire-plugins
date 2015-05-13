@@ -29,6 +29,17 @@ define [
             else
                 clearAllItems(listNode)
 
+        updateItem = (listNode, item, itemPattern, transform) ->
+            # to propect item mutation
+            item = _.clone item
+            if transform?
+                for fieldKey, transformer of transform
+                    if item[fieldKey]
+                        item[fieldKey] = transformer item[fieldKey]
+
+            listNode = $(listNode)
+            itemNode = listNode.find("#" + item["_id"]).replaceWith createElement(itemPattern, item)
+
         clearAllItems = (listNode) ->
             listNode = $(listNode)
             listNode.text("")
@@ -43,7 +54,6 @@ define [
                 return ensureListRootNode(target, listPattern, item)
 
         look = (facet, options, wire) ->
-            console.debug "look facet"
             target = $(facet.target)
             wire(facet.options).then (options) ->
                 collection  = options.to.collection
@@ -56,6 +66,11 @@ define [
                     if event is "add"
                         listNode = ensureListRootNode(target, listPattern, entity)
                         insertItem(listNode, entity, itemPattern, transform)
+
+                    if event is "update"
+                        listNode = ensureListRootNode(target, listPattern, entity)
+                        updateItem(listNode, entity, itemPattern, transform)
+
                     if event is "reset"
                         listNode = ensureListRootNode(target, listPattern)
                         # entity is array

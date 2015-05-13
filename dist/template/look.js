@@ -1,6 +1,6 @@
 define(["underscore", "jquery", "when"], function(_, $, When) {
   return function(options) {
-    var clearAllItems, createElement, ensureListRootNode, insertItem, insertItems, look, lookFacet, pluginInstance;
+    var clearAllItems, createElement, ensureListRootNode, insertItem, insertItems, look, lookFacet, pluginInstance, updateItem;
     createElement = function(template, item) {
       return $.parseHTML(template(item));
     };
@@ -27,6 +27,20 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
         return clearAllItems(listNode);
       }
     };
+    updateItem = function(listNode, item, itemPattern, transform) {
+      var fieldKey, itemNode, transformer;
+      item = _.clone(item);
+      if (transform != null) {
+        for (fieldKey in transform) {
+          transformer = transform[fieldKey];
+          if (item[fieldKey]) {
+            item[fieldKey] = transformer(item[fieldKey]);
+          }
+        }
+      }
+      listNode = $(listNode);
+      return itemNode = listNode.find("#" + item["_id"]).replaceWith(createElement(itemPattern, item));
+    };
     clearAllItems = function(listNode) {
       listNode = $(listNode);
       return listNode.text("");
@@ -43,7 +57,6 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
     };
     look = function(facet, options, wire) {
       var target;
-      console.debug("look facet");
       target = $(facet.target);
       return wire(facet.options).then(function(options) {
         var collection, itemPattern, listPattern, signal, transform;
@@ -57,6 +70,10 @@ define(["underscore", "jquery", "when"], function(_, $, When) {
           if (event === "add") {
             listNode = ensureListRootNode(target, listPattern, entity);
             insertItem(listNode, entity, itemPattern, transform);
+          }
+          if (event === "update") {
+            listNode = ensureListRootNode(target, listPattern, entity);
+            updateItem(listNode, entity, itemPattern, transform);
           }
           if (event === "reset") {
             listNode = ensureListRootNode(target, listPattern);
