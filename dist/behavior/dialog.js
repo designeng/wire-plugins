@@ -9,7 +9,7 @@ define(["meld", "plugins/utils/dialog/modalDialogPattern"], function(meld, modal
       var $modalDialogEl, invoker, onDialogShow, providerClass, _ref;
       $modalDialogEl = null;
       onDialogShow = function() {};
-      _ref = getClassAndMethod(componentDef.options.showOn.$ref), providerClass = _ref[0], invoker = _ref[1];
+      _ref = getClassAndMethod(componentDef.options.showAfter.$ref), providerClass = _ref[0], invoker = _ref[1];
       return wire.resolveRef(providerClass).then(function(provider) {
         removers.push(meld.after(provider, invoker, function(data) {
           $modalDialogEl.show();

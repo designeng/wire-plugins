@@ -81,7 +81,7 @@ define ->
             onDialogShow: {$ref: "controller.onDialogShow"}
             onConfirmation: {$ref: "controller.onDialogConfirmation"}
             onDialogClose: {$ref: "controller.onDialogClose"}
-            showOn: {$ref: "controller.displayWarning"}
+            showAfter: {$ref: "controller.displayWarning"}
             appendTo: {$ref: "view"}
 
     controller:

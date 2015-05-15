@@ -120,7 +120,7 @@ define(function() {
         onDialogClose: {
           $ref: "controller.onDialogClose"
         },
-        showOn: {
+        showAfter: {
           $ref: "controller.displayWarning"
         },
         appendTo: {

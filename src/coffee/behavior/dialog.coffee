@@ -15,7 +15,7 @@ define [
             $modalDialogEl = null
             onDialogShow = () ->
 
-            [providerClass, invoker] = getClassAndMethod(componentDef.options.showOn.$ref)
+            [providerClass, invoker] = getClassAndMethod(componentDef.options.showAfter.$ref)
 
             wire.resolveRef(providerClass).then (provider) ->
 
