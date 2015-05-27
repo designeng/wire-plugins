@@ -1,6 +1,5 @@
 ##wire-plugins
-
-It's not a "framework" in common sense: no "core", just plugins for `DSL` semantic extention.
+Not a "framework" in common sense: no "core", just plugins for `DSL` semantic extention.
 
 This assumes that you use `wire.js` in your application as composition layer.
 
@@ -9,7 +8,7 @@ As usial, run `npm install` (you should have `node` preinstalled). `grunt-cli` s
 
 Start server by running default task `grunt` & navigate your browser to `http://localhost:7788/app/#/contacts`.
 
-`contacts` component source code: `app/coffee/components/contacts`
+To get to the point, take a look to `contacts` component source code: `app/coffee/components/contacts/spec`.
 
 ##todo
 + Avoid `deferred` [terrible](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-deferred-anti-pattern) somewhere 
