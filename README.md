@@ -12,7 +12,7 @@ Start server by running default task `grunt` & navigate your browser to `http://
 `contacts` component source code: `app/coffee/components/contacts`
 
 ##todo
-+ Avoid `deferred` usage somewhere
++ Avoid `deferred` [terrible](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-deferred-anti-pattern) somewhere 
 + Documentation
 + Extract usage example to wire-plugins-example
 + Tests for validation plugin and routing system.
