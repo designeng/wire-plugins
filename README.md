@@ -12,6 +12,7 @@ Start server by running default task `grunt` & navigate your browser to `http://
 `contacts` component source code: `app/coffee/components/contacts`
 
 ##todo
++ Avoid `deferred` usage somewhere
 + Documentation
 + Extract usage example to wire-plugins-example
 + Tests for validation plugin and routing system.
