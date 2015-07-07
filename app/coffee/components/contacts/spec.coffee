@@ -9,20 +9,20 @@ define ->
         'plugins/template/look'
         'plugins/form/validate'
         'plugins/template/hbsResolver'
-        "plugins/behavior/dialog"
+        'plugins/behavior/dialog'
     ]
 
     view:
         render:
             template:
-                module: "text!components/contacts/template.html"
+                module: 'text!components/contacts/template.html'
         insert:
             at: {$ref: 'slot'}
 
     contactsList:
         render:
             template:
-                module: "text!components/contacts/list.html"
+                module: 'text!components/contacts/list.html'
         insert:
             at: {$ref: 'dom.first!#contactsWrapper', at: 'view'}
         look:
@@ -35,57 +35,57 @@ define ->
 
     contacts:
         create:
-            module: "plugins/utils/entity/Collection"
+            module: 'plugins/utils/entity/Collection'
             args: [
-                {uniqKey: "email"}
+                {uniqKey: 'email'}
             ]
 
     form:
         render:
             template:
-                module: "text!components/contacts/form.html"
+                module: 'text!components/contacts/form.html'
         insert:
             at: {$ref: 'dom.first!#contactsFormWrapper', at: 'view'}
         validate:
             fieldNames: [
-                "firstName"
-                "lastName"
-                "email"
+                'firstName'
+                'lastName'
+                'email'
             ]
             strategy: {$ref: 'formStrategy'}
             displaySlot: {$ref: 'dom.first!.displayErrorsWrapper', at: 'form'}
-            displaySlotClass: "displaySlotClass"
+            displaySlotClass: 'displaySlotClass'
             successHandler: {$ref: 'controller.addContact'}
 
-    nameMessage: "The field can contain only english and russian letters and hyphen"
+    nameMessage: 'The field can contain only english and russian letters and hyphen'
 
     formStrategy:
         firstName:
-            "firstNameValidation":
+            'firstNameValidation':
                 rule: /^[a-zA-Zа-яА-ЯёЁ]+[a-zA-Zа-яА-ЯёЁ\-]*$/g
                 message: {$ref: 'nameMessage'}
         lastName: 
-            "lastNameValidation":
+            'lastNameValidation':
                 rule: /^[a-zA-Zа-яА-ЯёЁ]+[a-zA-Zа-яА-ЯёЁ\-]*$/g
                 message: {$ref: 'nameMessage'}
         email: 
-            "emailValidation":
+            'emailValidation':
                 rule: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g   #`'"'
-                message: "Input email"
+                message: 'Input email'
 
     dialog:
         createDialog:
-            body: "Are you going to override it?"
-            confirmButtonLabel: "Yes, override it"
-            refuseButtonLabel: "No, by no means"
-            onDialogShow: {$ref: "controller.onDialogShow"}
-            onConfirmation: {$ref: "controller.onDialogConfirmation"}
-            onDialogClose: {$ref: "controller.onDialogClose"}
-            showAfter: {$ref: "controller.displayWarning"}
-            appendTo: {$ref: "view"}
+            body: 'Are you going to override it?'
+            confirmButtonLabel: 'Yes, override it'
+            refuseButtonLabel: 'No, by no means'
+            onDialogShow: {$ref: 'controller.onDialogShow'}
+            onConfirmation: {$ref: 'controller.onDialogConfirmation'}
+            onDialogClose: {$ref: 'controller.onDialogClose'}
+            showAfter: {$ref: 'controller.displayWarning'}
+            appendTo: {$ref: 'view'}
 
     controller:
-        create: "components/contacts/controller"
+        create: 'components/contacts/controller'
         properties:
             contacts: {$ref: 'contacts'}
             formStrategy: {$ref: 'formStrategy'}
@@ -95,12 +95,12 @@ define ->
             form: {$ref: 'form'}
         on:
             form:
-                "submit": {$ref: 'controller.onSubmit'}
+                'submit': {$ref: 'controller.onSubmit'}
             contactsList:
-                "click": {$ref: 'controller.onListItemClick'}
+                'click': {$ref: 'controller.onListItemClick'}
         ready:
             onReady: {}
 
     transformer:
-        module: "components/contacts/hashCode"
+        module: 'components/contacts/hashCode'
         
