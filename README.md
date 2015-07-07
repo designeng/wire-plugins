@@ -4,10 +4,12 @@ Not a "framework" in common sense: no "core", just plugins for `DSL` semantic ex
 This assumes that you use `wire.js` in your application as composition layer.
 
 ###installation
-`git clone https://github.com/designeng/wire-plugins
-cd wire-plugins
-npm install
-grunt`
+
+    git clone https://github.com/designeng/wire-plugins
+    cd wire-plugins
+    npm install
+    grunt
+
 and navigate your browser to `http://localhost:7788/app/#/contacts`.
 
 ###usage example
