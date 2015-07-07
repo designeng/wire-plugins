@@ -14,4 +14,5 @@ To get to the point, take a look to `contacts` component source code: `app/coffe
 + Avoid `deferred` [terrible](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-deferred-anti-pattern) somewhere 
 + Documentation
 + Extract usage example to wire-plugins-example
++ Dist as package to avoid boring 'plugins/etc' in requirejs paths
 + Tests for validation plugin and routing system.
