@@ -39,7 +39,8 @@ define
             'validator.removeStrategyField' : 'swithToInitialState | forgetField'
         # Prefixes:
         # "before:" - method will be invoked before all filters, returned value ignored;
-        # "filter:" - method will be invoked before all tasks, can return true or false.
+        # "filter:" - method will be invoked before all tasks, can return true or false;
+        # "alternative:" - method will be invoked if filters invocation returns false.
         # Another tasks (without prefix) will be pipelined and invoked in order from left to right 
         # - in case of conjunction of all filters returns true.
         streams:
@@ -48,5 +49,5 @@ define
                 "keyup" : "filter:isActualField |filter:checkAndShowRegisteredError | validate | displayError| highLight | alternative:validate"
                 "change": "validate | registerError | highLight"
                 "submit": "validateAll"
-                # "blur"  : "hideError"
+                "blur"  : "hideError"
             hooks: {$ref: 'streamsHooks'}
