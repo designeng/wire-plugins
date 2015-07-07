@@ -1,6 +1,6 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-define(["jquery", "underscore"], function($, _) {
+define(['jquery', 'underscore'], function($, _) {
   var Controller;
   return Controller = (function() {
     function Controller() {
@@ -16,7 +16,7 @@ define(["jquery", "underscore"], function($, _) {
     Controller.prototype.onReady = function() {
       var $form,
         _this = this;
-      this.contactsPreloader = $(".contacts-preloader");
+      this.contactsPreloader = $('.contacts-preloader');
       this.contacts.onKeyRepeat(this.displayWarning);
       this.itemFields = _.keys(this.formStrategy);
       $form = $(this.form);
@@ -32,14 +32,14 @@ define(["jquery", "underscore"], function($, _) {
       return setTimeout(function() {
         _this.contactsPreloader.hide();
         _this.contacts.addItem({
-          firstName: "JOHN",
-          lastName: "STARKY",
-          email: "john@el.com"
+          firstName: 'JOHN',
+          lastName: 'STARKY',
+          email: 'john@el.com'
         });
         return _this.contacts.addItem({
-          firstName: "RICHARD",
-          lastName: "TEDDY",
-          email: "rich@el.com"
+          firstName: 'RICHARD',
+          lastName: 'TEDDY',
+          email: 'rich@el.com'
         });
       }, 1000);
     };
@@ -51,14 +51,14 @@ define(["jquery", "underscore"], function($, _) {
     Controller.prototype.onListItemClick = function(event) {
       var itemHolder,
         _this = this;
-      itemHolder = $(event.target).closest("li");
+      itemHolder = $(event.target).closest('li');
       return _.each(this.itemFields, function(fieldName) {
         return _this.contactFormInputs[fieldName].val(itemHolder.find("[data-field=" + fieldName + "]").text());
       });
     };
 
     Controller.prototype.onDialogShow = function(item) {
-      return $("#modal-dialog-title").text("Contact with email " + item.email + " exists");
+      return $('#modal-dialog-title').text("Contact with email " + item.email + " exists");
     };
 
     Controller.prototype.onDialogConfirmation = function() {
@@ -78,22 +78,22 @@ define(["jquery", "underscore"], function($, _) {
     };
 
     Controller.prototype.clearAllWarnings = function() {
-      return _.forEach(this.contactsList.getElementsByTagName("li"), function(element) {
-        return $(element).removeClass("list-group-item-warning");
+      return _.forEach(this.contactsList.getElementsByTagName('li'), function(element) {
+        return $(element).removeClass('list-group-item-warning');
       });
     };
 
     Controller.prototype.displayWarning = function(item) {
       var key;
       key = this.transformer(item._id);
-      $("#" + key).addClass("list-group-item-warning");
+      $('#' + key).addClass('list-group-item-warning');
       return item;
     };
 
     Controller.prototype.clearWarning = function() {
       var key;
       key = this.transformer(this.currentItem._id);
-      return $("#" + key).removeClass("list-group-item-warning");
+      return $('#' + key).removeClass('list-group-item-warning');
     };
 
     return Controller;

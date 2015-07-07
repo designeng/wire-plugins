@@ -1,10 +1,10 @@
 define(function() {
   return {
-    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look', 'plugins/form/validate', 'plugins/template/hbsResolver', "plugins/behavior/dialog"],
+    $plugins: ['wire/debug', 'wire/on', 'wire/dom', 'wire/dom/render', 'plugins/template/hb', 'plugins/template/look', 'plugins/form/validate', 'plugins/template/hbsResolver', 'plugins/behavior/dialog'],
     view: {
       render: {
         template: {
-          module: "text!components/contacts/template.html"
+          module: 'text!components/contacts/template.html'
         }
       },
       insert: {
@@ -16,7 +16,7 @@ define(function() {
     contactsList: {
       render: {
         template: {
-          module: "text!components/contacts/list.html"
+          module: 'text!components/contacts/list.html'
         }
       },
       insert: {
@@ -46,10 +46,10 @@ define(function() {
     },
     contacts: {
       create: {
-        module: "plugins/utils/entity/Collection",
+        module: 'plugins/utils/entity/Collection',
         args: [
           {
-            uniqKey: "email"
+            uniqKey: 'email'
           }
         ]
       }
@@ -57,7 +57,7 @@ define(function() {
     form: {
       render: {
         template: {
-          module: "text!components/contacts/form.html"
+          module: 'text!components/contacts/form.html'
         }
       },
       insert: {
@@ -67,7 +67,7 @@ define(function() {
         }
       },
       validate: {
-        fieldNames: ["firstName", "lastName", "email"],
+        fieldNames: ['firstName', 'lastName', 'email'],
         strategy: {
           $ref: 'formStrategy'
         },
@@ -75,16 +75,16 @@ define(function() {
           $ref: 'dom.first!.displayErrorsWrapper',
           at: 'form'
         },
-        displaySlotClass: "displaySlotClass",
+        displaySlotClass: 'displaySlotClass',
         successHandler: {
           $ref: 'controller.addContact'
         }
       }
     },
-    nameMessage: "The field can contain only english and russian letters and hyphen",
+    nameMessage: 'The field can contain only english and russian letters and hyphen',
     formStrategy: {
       firstName: {
-        "firstNameValidation": {
+        'firstNameValidation': {
           rule: /^[a-zA-Zа-яА-ЯёЁ]+[a-zA-Zа-яА-ЯёЁ\-]*$/g,
           message: {
             $ref: 'nameMessage'
@@ -92,7 +92,7 @@ define(function() {
         }
       },
       lastName: {
-        "lastNameValidation": {
+        'lastNameValidation': {
           rule: /^[a-zA-Zа-яА-ЯёЁ]+[a-zA-Zа-яА-ЯёЁ\-]*$/g,
           message: {
             $ref: 'nameMessage'
@@ -100,36 +100,36 @@ define(function() {
         }
       },
       email: {
-        "emailValidation": {
+        'emailValidation': {
           rule: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g,
-          message: "Input email"
+          message: 'Input email'
         }
       }
     },
     dialog: {
       createDialog: {
-        body: "Are you going to override it?",
-        confirmButtonLabel: "Yes, override it",
-        refuseButtonLabel: "No, by no means",
+        body: 'Are you going to override it?',
+        confirmButtonLabel: 'Yes, override it',
+        refuseButtonLabel: 'No, by no means',
         onDialogShow: {
-          $ref: "controller.onDialogShow"
+          $ref: 'controller.onDialogShow'
         },
         onConfirmation: {
-          $ref: "controller.onDialogConfirmation"
+          $ref: 'controller.onDialogConfirmation'
         },
         onDialogClose: {
-          $ref: "controller.onDialogClose"
+          $ref: 'controller.onDialogClose'
         },
         showAfter: {
-          $ref: "controller.displayWarning"
+          $ref: 'controller.displayWarning'
         },
         appendTo: {
-          $ref: "view"
+          $ref: 'view'
         }
       }
     },
     controller: {
-      create: "components/contacts/controller",
+      create: 'components/contacts/controller',
       properties: {
         contacts: {
           $ref: 'contacts'
@@ -152,12 +152,12 @@ define(function() {
       },
       on: {
         form: {
-          "submit": {
+          'submit': {
             $ref: 'controller.onSubmit'
           }
         },
         contactsList: {
-          "click": {
+          'click': {
             $ref: 'controller.onListItemClick'
           }
         }
@@ -167,7 +167,7 @@ define(function() {
       }
     },
     transformer: {
-      module: "components/contacts/hashCode"
+      module: 'components/contacts/hashCode'
     }
   };
 });
