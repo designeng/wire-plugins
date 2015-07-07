@@ -1,4 +1,7 @@
-connectMW = require(require("path").resolve("middleware", "connectMW.coffee"))
+path = require "path"
+
+folderMount = (connect, point) ->
+    return connect.static path.resolve(point)
 
 module.exports = (grunt) ->
 
@@ -66,7 +69,7 @@ module.exports = (grunt) ->
                     base: '.'
                     middleware: (connect, options) ->
                         return [
-                            connectMW.folderMount(connect, options.base)
+                            folderMount(connect, options.base)
                         ]
 
         concat:
