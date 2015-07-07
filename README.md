@@ -1,7 +1,7 @@
 ###wire-plugins
 Not a "framework" in common sense: no "core", just plugins for `DSL` semantic extention.
 
-This assumes that you use [wire.js](https://github.com/cujojs/wire) in your application as IOC and `wire.js specifications` as composition layer.
+This assumes that you use [wire.js](https://github.com/cujojs/wire) in your application as IOC and [wire.js specifications](https://github.com/cujojs/wire/blob/master/docs/concepts.md#application-composition) as composition layer.
 
 ###installation
 
