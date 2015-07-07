@@ -40,7 +40,7 @@ define
         # Prefixes:
         # "before:" - method will be invoked before all filters, returned value ignored;
         # "filter:" - method will be invoked before all tasks, can return true or false;
-        # "alternative:" - method will be invoked if filters invocation returns false.
+        # "alternative:" - method will be invoked if filters conjunction invocation returns false.
         # Another tasks (without prefix) will be pipelined and invoked in order from left to right 
         # - in case of conjunction of all filters returns true.
         streams:
