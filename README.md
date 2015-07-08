@@ -13,7 +13,7 @@ This assumes that you use [wire.js](https://github.com/cujojs/wire) in your appl
 and navigate your browser to `http://localhost:7788/app/#/contacts`.
 
 ###usage example
-To get to the point, take a look to `contacts` component source code: `app/coffee/components/contacts/spec`.
+To get to the point, take a look to `contacts` component source code: [app/coffee/components/contacts/spec](https://github.com/designeng/wire-plugins/blob/master/app/coffee/components/contacts/spec.coffee).
 
 ###todo
 + Avoid `deferred` [terrible](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-deferred-anti-pattern) somewhere 
