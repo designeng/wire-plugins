@@ -1,3 +1,5 @@
++[![codecov.io](http://codecov.io/github/designeng/wire-plugins/coverage.svg?branch=dev)](http://codecov.io/github/designeng/wire-plugins?branch=dev)
+
 ###wire-plugins
 Not a "framework" in common sense: no "core", just plugins for `DSL` semantic extention.
 

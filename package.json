@@ -5,10 +5,12 @@
     "postinstall": "bower install"
   },
   "dependencies": {
+    "codecov.io": "^0.1.5",
     "grunt": "~0.4.1",
     "underscore": "latest"
   },
   "devDependencies": {
+    "codecov.io": "^0.1.5",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-concat": "",
     "grunt-contrib-connect": "~0.6.0",
