@@ -1,4 +1,5 @@
-+[![codecov.io](http://codecov.io/github/designeng/wire-plugins/coverage.svg?branch=dev)](http://codecov.io/github/designeng/wire-plugins?branch=dev)
++[![Build Status](https://travis-ci.org/designeng/wire-plugins.png?branch=dev)](https://travis-ci.org/designeng/wire-plugins)
+[![codecov.io](http://codecov.io/github/designeng/wire-plugins/coverage.svg?branch=dev)](http://codecov.io/github/designeng/wire-plugins?branch=dev)
 
 ###wire-plugins
 Not a "framework" in common sense: no "core", just plugins for `DSL` semantic extention.
