@@ -3,6 +3,8 @@ Not a "framework" in common sense: no "core", just plugins for `DSL` semantic ex
 
 This assumes that you use [wire.js](https://github.com/cujojs/wire) in your application as IOC and [wire.js specifications](https://github.com/cujojs/wire/blob/master/docs/concepts.md#application-composition) as composition layer.
 
+[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+
 ###installation
 
     git clone https://github.com/designeng/wire-plugins
